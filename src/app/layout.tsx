@@ -5,6 +5,8 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
+import CartProvider from "@/providers/CartProvider";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,13 +33,23 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased text-slate-700`}
       >
-        <AppRouterCacheProvider>
-          <div className="flex flex-col min-h-screen">
-            <NavBar />
-            <main className="flex-grow ">{children}</main>
-            <Footer />
-          </div>
-        </AppRouterCacheProvider>
+        <Toaster
+          toastOptions={{
+            style: {
+              background: "rbg(51 65 85)",
+              color: "#fff",
+            },
+          }}
+        />
+        <CartProvider>
+          <AppRouterCacheProvider>
+            <div className="flex flex-col min-h-screen">
+              <NavBar />
+              <main className="flex-grow ">{children}</main>
+              <Footer />
+            </div>
+          </AppRouterCacheProvider>
+        </CartProvider>
       </body>
     </html>
   );
