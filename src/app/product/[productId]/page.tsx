@@ -1,19 +1,14 @@
 import Container from "@/components/Container";
 import ListRating from "@/components/ListRating";
 import ProductDetails from "@/components/ProductDetails";
-import { product } from "@/utils/product";
+import { products } from "@/utils/products";
 
 interface IParams {
-  productId: string;
+  productId?: string;
 }
 
-export default async function Product({
-  params,
-}: {
-  params: Promise<IParams>;
-}) {
-  const { productId } = await params;
-
+const Product = ({ params }: { params: IParams }) => {
+  const product = products.find((item) => item.id === params.productId);
   return (
     <div>
       <Container>
@@ -25,4 +20,6 @@ export default async function Product({
       </Container>
     </div>
   );
-}
+};
+
+export default Product;

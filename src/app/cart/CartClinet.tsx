@@ -4,9 +4,9 @@ import Link from "next/link";
 import Heading from "@/components/Heading";
 import Button from "@/components/Button";
 import ItemContent from "./ItemContent";
+import formatPrice from "@/utils/formatPrice";
 export default function CartClient() {
-  const { cartProducts } = useCart();
-  const { handleClearCart } = useCart();
+  const { handleClearCart, cartTotalAmount, cartProducts } = useCart();
 
   if (!cartProducts || cartProducts.length === 0) {
     return (
@@ -50,7 +50,7 @@ export default function CartClient() {
       <div className="text-sm flex flex-col gap-1 items-start">
         <div className="flex justify-between text-base font-semibold w-full">
           <span>Subtotal</span>
-          <span>$100</span>
+          <span>{formatPrice(cartTotalAmount)}</span>
         </div>
         <p className="text-slate-500">
           Taxes and shipping calculate at checkout
