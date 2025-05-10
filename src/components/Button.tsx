@@ -9,6 +9,7 @@ interface ButtonProps {
   small?: boolean;
   custom?: string;
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  type?: "button" | "submit" | "reset";
 }
 
 export default function Button({
@@ -18,9 +19,11 @@ export default function Button({
   small,
   custom,
   onClick,
+  type,
 }: ButtonProps) {
   return (
     <button
+      type={type}
       onClick={onClick}
       disabled={disable}
       className={`disabled: opacity-70 disabled:cursor-not-allowed rounded-md hover:opacity-80 transition  w-full border-slate-700 flex items-center justify-center gap-2 ${
