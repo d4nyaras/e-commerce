@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import CartProvider from "@/providers/CartProvider";
 import { Toaster } from "react-hot-toast";
+import AnnouncementBar from "@/components/AnnouncementBar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -44,6 +45,7 @@ export default function RootLayout({
         <CartProvider>
           <AppRouterCacheProvider>
             <div className="flex flex-col min-h-screen">
+              <AnnouncementBar message="Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!" />
               <NavBar />
               <main className="flex-grow ">{children}</main>
               <Footer />
