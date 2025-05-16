@@ -97,7 +97,10 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
         product={product}
         handleColorSelect={handleColorSelect}
       />
-      <div className="flex flex-col gap-1 text-slate-500 text-sm">
+      <div
+        className="flex flex-col gap-1 text-slate-500 text-sm"
+        style={{ border: "3px solid red" }}
+      >
         <h2 className="text-3xl font-medium text-slate-700">{product.name}</h2>
         <div className="flex items-center gap-2">
           <Rating value={productRating} readOnly />
