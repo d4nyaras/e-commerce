@@ -26,15 +26,15 @@ export default function LoginForm() {
   };
 
   return (
-    <div>
+    <div className="flex flex-col gap-6">
+      <div>
+        <Heading title="Log in" />
+        <span>Enter your details below</span>
+      </div>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="w-full relative flex flex-col gap-2"
+        className="w-full h-full flex flex-col gap-2 "
       >
-        <Heading title="Login in" />
-        <Button outline label="Continue with google " onClick={() => {}} />
-        <hr className="bg-slate-300 w-full h-px" />
-
         <Input
           id="email"
           label="Email"
@@ -52,19 +52,21 @@ export default function LoginForm() {
           required
           type="password"
         />
-        <Button
-          label={isLoading ? "Loading" : "Login"}
-          type="submit"
-          onClick={() => {}}
-        />
       </form>
-
-      <p className="text-sm">
-        Do not have an account?
-        <Link href="/register" className="underline">
-          Sign up{" "}
-        </Link>
-      </p>
+      <div className="flex justify-between ">
+        <div>
+          <Button
+            label={isLoading ? "Loading" : "Lon In"}
+            type="submit"
+            onClick={() => {}}
+          />
+        </div>
+        <div className="text-[#FB2873]">
+          <Link href="/" className="">
+            Forget Password
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }

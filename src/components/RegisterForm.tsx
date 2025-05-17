@@ -28,14 +28,15 @@ export default function RegisterForm() {
   };
 
   return (
-    <div>
+    <div className="flex flex-col gap-6">
+      <div>
+        <Heading title="Create an account" />
+        <span>Enter your details below</span>
+      </div>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="w-full relative flex flex-col gap-2"
+        className="w-full h-full flex flex-col gap-2 "
       >
-        <Heading title="Register" />
-        <Button outline label="Sign up with google " onClick={() => {}} />
-        <hr className="bg-slate-300 w-full h-px" />
         <Input
           id="name"
           label="Name"
@@ -61,19 +62,21 @@ export default function RegisterForm() {
           required
           type="password"
         />
-        <Button
-          label={isLoading ? "Loading" : "Sign Up"}
-          type="submit"
-          onClick={() => {}}
-        />
       </form>
 
-      <p className="text-sm">
-        Already have and account?
-        <Link href="/login" className="underline">
-          Log in
-        </Link>
-      </p>
+      <Button
+        label={isLoading ? "Loading" : "Create Account"}
+        type="submit"
+        onClick={() => {}}
+      />
+      <div className="flex justify-center ">
+        <p className="">
+          Already have and account?
+          <Link href="/login" className="underline">
+            Log in
+          </Link>
+        </p>
+      </div>
     </div>
   );
 }

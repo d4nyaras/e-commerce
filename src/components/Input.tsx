@@ -31,7 +31,7 @@ export default function Input({
         {...register(id, { required })}
         type={type}
         placeholder=""
-        className={`peer w-full p-4 pt-6 outline-none bg-white font-light rounded-md border-2 transition disabled:opacity-70 disabled:cursor-not-allowed ${
+        className={`peer w-full p-4 pt-6 outline-none bg-white font-light  border-b-2 transition disabled:opacity-70 disabled:cursor-not-allowed ${
           errors[id]
             ? "border-rose-400 focus:border-rose-400"
             : "border-slate-300 focus:border-slate-300"

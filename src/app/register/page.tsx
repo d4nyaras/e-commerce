@@ -1,13 +1,13 @@
 import Container from "@/components/Container";
-import FormWrap from "@/components/FormWrap";
+import AuthFormWrap from "@/components/AuthFormWrap";
 import RegisterForm from "@/components/RegisterForm";
 
 export default function Register() {
   return (
     <Container>
-      <FormWrap>
+      <AuthFormWrap>
         <RegisterForm />
-      </FormWrap>
+      </AuthFormWrap>
     </Container>
   );
 }

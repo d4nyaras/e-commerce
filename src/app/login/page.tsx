@@ -1,13 +1,13 @@
 import Container from "@/components/Container";
-import FormWrap from "@/components/FormWrap";
+import AuthFormWrap from "@/components/AuthFormWrap";
 import LoginForm from "@/components/LoginForm";
 
 export default function Login() {
   return (
     <Container>
-      <FormWrap>
+      <AuthFormWrap>
         <LoginForm />
-      </FormWrap>
+      </AuthFormWrap>
     </Container>
   );
 }
