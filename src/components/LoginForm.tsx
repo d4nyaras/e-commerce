@@ -6,6 +6,7 @@ import Input from "./Input";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import Button from "./Button";
 import Link from "next/link";
+import API from "@/services/api";
 
 export default function LoginForm() {
   const [isLoading, setIsLoading] = useState(false);
@@ -20,9 +21,14 @@ export default function LoginForm() {
     },
   });
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     setIsLoading(true);
-    console.log(data);
+    try {
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -33,7 +39,7 @@ export default function LoginForm() {
       </div>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="w-full h-full flex flex-col gap-2 "
+        className="w-full h-full flex flex-col gap-2"
       >
         <Input
           id="email"
@@ -52,21 +58,18 @@ export default function LoginForm() {
           required
           type="password"
         />
+
+        <div className="flex justify-between">
+          <div>
+            <Button label={isLoading ? "Loading" : "Log In"} type="submit" />
+          </div>
+          <div className="text-[#FB2873]">
+            <Link href="/" className="">
+              Forget Password
+            </Link>
+          </div>
+        </div>
       </form>
-      <div className="flex justify-between ">
-        <div>
-          <Button
-            label={isLoading ? "Loading" : "Lon In"}
-            type="submit"
-            onClick={() => {}}
-          />
-        </div>
-        <div className="text-[#FB2873]">
-          <Link href="/" className="">
-            Forget Password
-          </Link>
-        </div>
-      </div>
     </div>
   );
 }

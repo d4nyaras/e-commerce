@@ -6,7 +6,6 @@ import Input from "./Input";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import Button from "./Button";
 import Link from "next/link";
-import { AiOutlineGoogle } from "react-icons/ai";
 
 export default function RegisterForm() {
   const [isLoading, setIsLoading] = useState(false);
