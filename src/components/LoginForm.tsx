@@ -7,8 +7,10 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import Button from "./Button";
 import Link from "next/link";
 import API from "@/services/api";
+import { useRouter } from "next/navigation";
 
 export default function LoginForm() {
+  const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const {
     register,
@@ -16,7 +18,7 @@ export default function LoginForm() {
     formState: { errors },
   } = useForm<FieldValues>({
     defaultValues: {
-      email: "",
+      username: "",
       password: "",
     },
   });
@@ -24,8 +26,15 @@ export default function LoginForm() {
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     setIsLoading(true);
     try {
-    } catch (error) {
-      console.log(error);
+      const response = await API.post("/auth/login", {
+        password: data.password,
+        username: data.username,
+      });
+
+      localStorage.setItem("commerce-user", response.data);
+      router.push("/");
+    } catch (error: any) {
+      console.log(error.response?.data?.message);
     } finally {
       setIsLoading(false);
     }
@@ -42,8 +51,8 @@ export default function LoginForm() {
         className="w-full h-full flex flex-col gap-2"
       >
         <Input
-          id="email"
-          label="Email"
+          id="username"
+          label="username"
           disabled={isLoading}
           register={register}
           errors={errors}
