@@ -1,13 +1,17 @@
+"use client";
 import Link from "next/link";
 import Container from "./Container";
 import { Redressed } from "next/font/google";
 import CartCount from "./CartCount";
 import { FiUser } from "react-icons/fi";
 import { FaRegHeart } from "react-icons/fa";
+import { useAuth } from "@/context/AuthContext";
 
 const redressed = Redressed({ subsets: ["latin"], weight: ["400"] });
 
 export default function NavBar() {
+  const { isLoggedIn } = useAuth();
+  console.log(isLoggedIn + " this is logged in status");
   return (
     <div className="sticky top-0 w-full bg-white z-30 shadow-sm mb-16">
       <div className="py-4 border-b-[1px] border-[#fdb4cd] ">

@@ -8,8 +8,10 @@ import Button from "./Button";
 import Link from "next/link";
 import API from "@/services/api";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
 
 export default function LoginForm() {
+  const { login } = useAuth();
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const {
@@ -31,7 +33,8 @@ export default function LoginForm() {
         username: data.username,
       });
 
-      localStorage.setItem("commerce-user", response.data);
+      login(response.data);
+
       router.push("/");
     } catch (error: any) {
       console.log(error.response?.data?.message);

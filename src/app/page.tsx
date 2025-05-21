@@ -2,6 +2,7 @@ import Container from "@/components/Container";
 import HomeBanner from "@/components/HomeBanner";
 import { products } from "@/utils/products";
 import ProductCard from "@/components/ProductCard";
+import BrowseByCategory from "@/components/BrowseByCategory";
 
 export default function Home() {
   return (
@@ -15,6 +16,8 @@ export default function Home() {
             return <ProductCard key={product.id} data={product} />;
           })}
         </div>
+        <hr className="w-full my-8 text-slate-200  " />
+        <BrowseByCategory />
       </Container>
     </div>
   );

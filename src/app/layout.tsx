@@ -8,6 +8,7 @@ import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import CartProvider from "@/providers/CartProvider";
 import { Toaster } from "react-hot-toast";
 import AnnouncementBar from "@/components/AnnouncementBar";
+import { AuthProvider } from "@/context/AuthContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,24 +35,26 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased text-slate-700`}
       >
-        <Toaster
-          toastOptions={{
-            style: {
-              background: "rbg(51 65 85)",
-              color: "#fff",
-            },
-          }}
-        />
-        <CartProvider>
-          <AppRouterCacheProvider>
-            <div className="flex flex-col min-h-screen">
-              <AnnouncementBar message="Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!" />
-              <NavBar />
-              <main className="flex-grow ">{children}</main>
-              <Footer />
-            </div>
-          </AppRouterCacheProvider>
-        </CartProvider>
+        <AuthProvider>
+          <Toaster
+            toastOptions={{
+              style: {
+                background: "rbg(51 65 85)",
+                color: "#fff",
+              },
+            }}
+          />
+          <CartProvider>
+            <AppRouterCacheProvider>
+              <div className="flex flex-col min-h-screen">
+                <AnnouncementBar message="Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!" />
+                <NavBar />
+                <main className="flex-grow ">{children}</main>
+                <Footer />
+              </div>
+            </AppRouterCacheProvider>
+          </CartProvider>
+        </AuthProvider>
       </body>
     </html>
   );
