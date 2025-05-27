@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ReactNode } from "react";
 
 interface CategoryContainerProps {
@@ -10,9 +11,14 @@ export default function CategoryContainer({
   label,
 }: CategoryContainerProps) {
   return (
-    <div className="flex flex-col gap-4 items-center justify-center border border-slate-200 rounded-2 w-[15%] p-6  ">
-      <div className="text-[#FB2873] text-[56px] ">{icon}</div>
-      <h2 className="text-xl font-medium ">{label}</h2>
-    </div>
+    <Link
+      href={`/product/category/${label.toLocaleLowerCase()}`}
+      className="no-underline w-[15%]"
+    >
+      <div className="flex flex-col gap-4 items-center justify-center border border-slate-200 rounded-2  p-6  ">
+        <div className="text-[#FB2873] text-[56px] ">{icon}</div>
+        <h2 className="text-xl font-medium ">{label}</h2>
+      </div>
+    </Link>
   );
 }

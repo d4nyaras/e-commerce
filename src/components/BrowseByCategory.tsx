@@ -11,7 +11,6 @@ export default function BrowseByCategory() {
     API.get("/products/category-list")
       .then((res) => {
         setCategory(res.data);
-        console.log(category);
       })
       .catch((error) => {
         console.log(error);

@@ -1,8 +1,8 @@
 import Image from "next/image";
 export default function HomeBanner() {
   return (
-    <div className="relative bg-gradient-to-r from-sky-500 to-sky-700 mb-0 ">
-      <div className="mx-auto px-5 py-12 flex flex-col gap-2 md:flex-row items-center justify-evenly">
+    <div className="relative mb-8  ">
+      <div className="  bg-black mx-auto px-5 py-12 flex flex-col gap-2 md:flex-row items-center justify-evenly w-[85%]">
         <div className="mb-8 md:mb-0 text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
             Summer Sale!
@@ -16,8 +16,8 @@ export default function HomeBanner() {
         </div>
         <div className="w-1/3 relative aspect-video">
           <Image
-            height={300}
-            width={300}
+            height={400}
+            width={400}
             src="/bannerImage.png"
             alt="Banner Image"
             className="object-contain"

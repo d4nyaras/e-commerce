@@ -13,7 +13,7 @@ export default function NavBar() {
   const { isLoggedIn } = useAuth();
   console.log(isLoggedIn + " this is logged in status");
   return (
-    <div className="sticky top-0 w-full bg-white z-30 shadow-sm mb-16">
+    <div className="sticky top-0 w-full bg-white z-30 shadow-sm mb-8">
       <div className="py-4 border-b-[1px] border-[#fdb4cd] ">
         <Container>
           <div className="flex items-center justify-between gap-3 md:gap-0">

@@ -15,6 +15,10 @@ export default function Home() {
           {products.map((product) => {
             return <ProductCard key={product.id} data={product} />;
           })}
+
+          {products.map((product) => {
+            return <ProductCard key={product.id} data={product} />;
+          })}
         </div>
         <hr className="w-full my-8 text-slate-200  " />
         <BrowseByCategory />
