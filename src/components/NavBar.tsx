@@ -24,10 +24,9 @@ export default function NavBar() {
               E-Shop
             </Link>
             <div className="flex gap-5 font-medium">
-              <span>Home</span>
-              <span>Contact</span>
-              <span>About</span>
-              <span>Sign Up</span>
+              <Link href="contact">Contact</Link>
+              <Link href="about-us">About</Link>
+              <Link href="sign-up">Sign Up</Link>
             </div>
             <div className="flex items-center gap-3 md:gap-12">
               <FaRegHeart size={28} />
