@@ -3,12 +3,19 @@ import HomeBanner from "@/components/HomeBanner";
 import { products } from "@/utils/products";
 import ProductCard from "@/components/ProductCard";
 import BrowseByCategory from "@/components/BrowseByCategory";
+import SectionHeading from "@/components/SectionHeading";
 
 export default function Home() {
   return (
     <div className="p-8">
       <Container>
         <div>
+          <HomeBanner />
+        </div>
+        <div>
+          <SectionHeading header="Flash Sales" title="Today's" />
+        </div>
+        {/* <div>
           <HomeBanner />
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap:8">
@@ -21,7 +28,7 @@ export default function Home() {
           })}
         </div>
         <hr className="w-full my-8 text-slate-200  " />
-        <BrowseByCategory />
+        <BrowseByCategory /> */}
       </Container>
     </div>
   );
