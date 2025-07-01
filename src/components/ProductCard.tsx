@@ -17,18 +17,26 @@ export default function ProductCard({ data }: ProductCardProps) {
   return (
     <div
       onClick={() => router.push(`/product/${data.id}`)}
-      className="col-span-1 cursor-pointer border-[1.2px] border-slate-50 rounded-sm p-2 transition hover:scale-105 text-center text-sm"
+      className="w-[1000px]"
+      // className="w-[300px] cursor-pointer border-[1.2px] border-slate-50 rounded-sm p-2 transition hover:scale-105 text-center text-sm"
+      style={{ border: "3px solid purple" }}
     >
-      <div className="flex flex-col items-center w-full gap-1 ">
-        <div className="aspect-square overflow-hidden relative w-full">
+      <div
+        className="flex flex-col items-center w-full gap-1 "
+        style={{ border: "3px solid blue" }}
+      >
+        <div className="" style={{ border: "3px solid red" }}>
           <Image
-            src={data.images[0].image}
-            alt={data.name}
-            fill
-            className="w-full h-full object-contain"
+            src={data.images[0]}
+            alt={data.title}
+            width={1000}
+            height={1000}
+            // className="w-full h-full object-contain"
+            unoptimized
           />
         </div>
-        <div className="mt-4">{truncateText(data.name)}</div>
+        <div>{data.title}</div>
+        {/* <div className="mt-4">{truncateText(data.name)}</div> */}
         <div>
           <Rating value={productRating} readOnly />
         </div>
