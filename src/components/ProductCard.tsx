@@ -1,7 +1,6 @@
 "use client";
 
 import formatPrice from "@/utils/formatPrice";
-import truncateText from "@/utils/truncateText";
 import Image from "next/image";
 import { Rating } from "@mui/material";
 import { useRouter } from "next/navigation";
@@ -17,31 +16,28 @@ export default function ProductCard({ data }: ProductCardProps) {
   return (
     <div
       onClick={() => router.push(`/product/${data.id}`)}
-      className="w-[1000px]"
-      // className="w-[300px] cursor-pointer border-[1.2px] border-slate-50 rounded-sm p-2 transition hover:scale-105 text-center text-sm"
-      style={{ border: "3px solid purple" }}
+      className="w-[250px] cursor-pointer border-[1.2px] border-slate-50 rounded-sm p-2 transition hover:scale-105 text-center text-sm"
     >
-      <div
-        className="flex flex-col items-center w-full gap-1 "
-        style={{ border: "3px solid blue" }}
-      >
-        <div className="" style={{ border: "3px solid red" }}>
+      <div className="flex flex-col items-start w-full gap-1 ">
+        <div>
           <Image
             src={data.images[0]}
             alt={data.title}
-            width={1000}
-            height={1000}
-            // className="w-full h-full object-contain"
+            width={250}
+            height={250}
             unoptimized
           />
         </div>
-        <div>{data.title}</div>
-        {/* <div className="mt-4">{truncateText(data.name)}</div> */}
-        <div>
-          <Rating value={productRating} readOnly />
+        <div className="text-bold font-bold">{data.title}</div>
+        <div className="font-semibold text-[#DB4444] ">
+          {formatPrice(data.price)}
         </div>
-        <div>{data.reviews.length}</div>
-        <div className="font-semibold ">{formatPrice(data.price)}</div>
+        <div className="flex gap-2 items-center">
+          <Rating value={productRating} readOnly />
+          <span className="font-bold text-gray-500">
+            ({data.reviews.length})
+          </span>
+        </div>
       </div>
     </div>
   );

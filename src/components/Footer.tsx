@@ -8,24 +8,23 @@ import FooterList from "./FooterList";
 import Link from "next/link";
 export default function Footer() {
   return (
-    <footer className="bg-[#FB2873] text-slate-200 text-sm mt-16 ">
+    <footer className="bg-[#FB2873] text-slate-200 text-sm mt-16  ">
       <Container>
-        <div className="flex flex-col md:flex-row justify-between pt-16 pb-8">
+        <div className="flex flex-col md:flex-row justify-between p-12">
           <FooterList>
-            <h3 className="text-base font-bold mb-2">Shop Categories</h3>
-            <Link href="#">Phones</Link>
-            <Link href="#">Phones</Link>
-            <Link href="#">Phones</Link>
-            <Link href="#">Phones</Link>
-            <Link href="#">Phones</Link>
+            <h3 className="text-base font-bold mb-2">Account</h3>
+            <Link href="#">My Account</Link>
+            <Link href="#">Login / Register</Link>
+            <Link href="#">Cart</Link>
+            <Link href="#">Wishlist</Link>
+            <Link href="#">Shop</Link>
           </FooterList>
           <FooterList>
-            <h3 className="text-base font-bold mb-2">Shop Categories</h3>
-            <Link href="#">Phones</Link>
-            <Link href="#">Phones</Link>
-            <Link href="#">Phones</Link>
-            <Link href="#">Phones</Link>
-            <Link href="#">Phones</Link>
+            <h3 className="text-base font-bold mb-2">Quick Link</h3>
+            <Link href="#">Privacy Policy</Link>
+            <Link href="#">Terms Of Use</Link>
+            <Link href="#">FAQ</Link>
+            <Link href="#">Contact</Link>
           </FooterList>
           <div className="w-full md:w-1/3 mb-6 md:mb-0 ">
             <h3 className="text-base font-bold mb-2">About Us</h3>

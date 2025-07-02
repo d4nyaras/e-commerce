@@ -6,11 +6,13 @@ import { useRef } from "react";
 interface ScrollButtonsProps {
   children: React.ReactNode;
   scrollAmount?: number;
+  isFlex?: boolean;
 }
 
 export default function ScrollButtons({
   children,
   scrollAmount = 300,
+  isFlex = true,
 }: ScrollButtonsProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -27,7 +29,6 @@ export default function ScrollButtons({
     <div
       style={{
         position: "relative",
-        border: "3px solid yellow",
       }}
     >
       <div
@@ -36,7 +37,7 @@ export default function ScrollButtons({
           top: -50,
           right: 60,
           display: "flex",
-          gap: 1,
+          gap: 4,
           zIndex: 10,
         }}
       >
@@ -61,10 +62,23 @@ export default function ScrollButtons({
 
       <div
         ref={containerRef}
-        className="flex overflow-auto"
-        style={{ border: "2px solid black" }}
+        className="flex overflow-x-auto "
+        style={{
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
+        }}
       >
-        {children}
+        <div
+          className={`flex gap-x-6 gap-y-6 ${
+            !isFlex && "grid grid-rows-2 auto-cols-max "
+          } `}
+          style={{
+            gridAutoFlow: "column",
+            display: "grid",
+          }}
+        >
+          {children}
+        </div>
       </div>
     </div>
   );
