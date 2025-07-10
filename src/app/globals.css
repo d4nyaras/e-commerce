@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+.hover-pink {
+  cursor: pointer;
+  color: #374151;
+  transition-property: color;
+  transition-duration: 300ms;
+}
+
+.hover-pink:hover {
+  color: #ec4899;
+}

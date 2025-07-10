@@ -5,10 +5,10 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
-import CartProvider from "@/providers/CartProvider";
 import { Toaster } from "react-hot-toast";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import { AuthProvider } from "@/context/AuthContext";
+import { CartProvider } from "@/context/CartContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,19 +32,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased text-slate-700 `}
       >
         <AuthProvider>
-          <Toaster
-            toastOptions={{
-              style: {
-                background: "rbg(51 65 85)",
-                color: "#fff",
-              },
-            }}
-          />
           <CartProvider>
+            <Toaster
+              toastOptions={{
+                style: {
+                  background: "rbg(51 65 85)",
+                  color: "#fff",
+                },
+              }}
+            />
             <AppRouterCacheProvider>
               <div className="flex flex-col min-h-screen">
                 <AnnouncementBar message="Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!" />

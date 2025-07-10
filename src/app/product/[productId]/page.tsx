@@ -1,22 +1,38 @@
+"use client";
+
 import Container from "@/components/Container";
 import ListRating from "@/components/ListRating";
 import ProductDetails from "@/components/ProductDetails";
-import { products } from "@/utils/products";
+import API from "@/services/api";
+import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
 
-interface IParams {
-  productId?: string;
-}
+const Product = () => {
+  const { productId } = useParams();
+  const [product, setProduct] = useState(null);
 
-const Product = ({ params }: { params: IParams }) => {
-  const product = products.find((item) => item.id === params.productId);
+  useEffect(() => {
+    if (productId) {
+      API.get(`/products/${productId}`)
+        .then((res) => setProduct(res.data))
+        .catch((error) => console.log(error));
+    }
+  }, [productId]);
+
   return (
     <div>
       <Container>
-        <ProductDetails product={product} />
-        <div className="flex flex-col mt-20 gap-4">
-          <div>Add Rating</div>
-          <ListRating product={product} />
-        </div>
+        {product ? (
+          <>
+            <ProductDetails product={product} />
+            <div className="flex flex-col mt-20 gap-4">
+              <div>Add Rating</div>
+              {/* <ListRating product={product} /> */}
+            </div>
+          </>
+        ) : (
+          <div>Loading...</div>
+        )}
       </Container>
     </div>
   );

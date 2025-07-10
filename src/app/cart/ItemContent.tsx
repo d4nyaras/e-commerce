@@ -1,6 +1,6 @@
 "use client";
 import { CartProductType } from "@/components/ProductDetails";
-import SetQuality from "@/components/SetQuality";
+import SetQuality from "@/components/SetQuantity";
 import { useCart } from "@/hooks/useCart";
 import formatPrice from "@/utils/formatPrice";
 import truncateText from "@/utils/truncateText";
