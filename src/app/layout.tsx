@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
-
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import { Toaster } from "react-hot-toast";
 import AnnouncementBar from "@/components/AnnouncementBar";
@@ -36,14 +35,14 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased text-slate-700 `}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased text-slate-700`}
       >
         <AuthProvider>
           <CartProvider>
             <Toaster
               toastOptions={{
                 style: {
-                  background: "rbg(51 65 85)",
+                  background: "rgb(51 65 85)",
                   color: "#fff",
                 },
               }}
@@ -52,7 +51,7 @@ export default function RootLayout({
               <div className="flex flex-col min-h-screen">
                 <AnnouncementBar message="Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!" />
                 <NavBar />
-                <main className="flex-grow px-[100px] ">{children}</main>
+                <main className="flex-grow px-[100px]">{children}</main>
                 <Footer />
               </div>
             </AppRouterCacheProvider>
