@@ -4,25 +4,25 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { useAuth } from "./AuthContext";
 import API from "@/services/api"; // Assuming you use axios or fetch wrapper
 
-type CartItem = {
-  id: number;
-  productId: number;
-  quantity: number;
-  // add more as needed
-};
+// type CartItem = {
+//   id: number;
+//   productId: number;
+//   quantity: number;
+//   // add more as needed
+// };
 
-type CartContextType = {
-  cart: CartItem[];
-  isLoading: boolean;
-  addToCart: (productId: number) => void;
-  removeFromCart: (productId: number) => void;
-  isInCart: (productId: number) => boolean;
-};
+// type CartContextType = {
+//   cart: CartItem[];
+//   isLoading: boolean;
+//   addToCart: (productId: number) => void;
+//   removeFromCart: (productId: number) => void;
+//   isInCart: (productId: number) => boolean;
+// };
 
-const CartContext = createContext<CartContextType | undefined>(undefined);
+const CartContext = createContext<any | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
-  const [cart, setCart] = useState<CartItem[]>([]);
+  const [cart, setCart] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const { user } = useAuth();
 
@@ -35,9 +35,7 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
       setIsLoading(true);
       try {
         const res = await API.get(`/carts/user/${user.id}`);
-        setCart(res.data); // adjust this depending on your dummyjson structure
-
-        console.log(JSON.stringify(res.data) + "GA;DFFFFFFFFFFFFFFFFFD");
+        setCart(res.data);
       } catch (err) {
         console.error("Failed to load cart", err);
       } finally {

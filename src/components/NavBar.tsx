@@ -8,6 +8,8 @@ import { FaRegHeart } from "react-icons/fa";
 import { useAuth } from "@/context/AuthContext";
 import { useState } from "react";
 
+import Input from "./Input";
+
 const redressed = Redressed({ subsets: ["latin"], weight: ["400"] });
 
 export default function NavBar() {
@@ -27,6 +29,8 @@ export default function NavBar() {
             >
               E-Shop
             </Link>
+
+            <Input />
 
             <div className="hidden md:flex gap-5 font-medium">
               <Link href="/contact" className="hover-pink">
