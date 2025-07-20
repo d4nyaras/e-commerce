@@ -46,8 +46,8 @@ export default function CartClient() {
       </div>
 
       <div className="flex justify-between mt-8">
-        <div className="flex gap-4 h-fit">
-          <div style={{ border: "3px solid blue" }}>input coupon code</div>
+        <div className="flex gap-4 items-start ">
+          <Input placeholder="Coupon Code" className="py-4" />
           <Button label="Apply Coupon" />
         </div>
         <div className="w-[40%] border-2 font-medium text-base   rounded-md border-gray-800 p-8  ">

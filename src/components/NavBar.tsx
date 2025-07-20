@@ -8,6 +8,8 @@ import { FaRegHeart } from "react-icons/fa";
 import { useAuth } from "@/context/AuthContext";
 import { useState } from "react";
 
+import { FiSearch } from "react-icons/fi";
+
 import Input from "./Input";
 
 const redressed = Redressed({ subsets: ["latin"], weight: ["400"] });
@@ -19,8 +21,8 @@ export default function NavBar() {
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   return (
-    <div className="sticky top-0 w-full bg-white z-30 shadow-sm mb-8">
-      <div className="py-4 border-b-[1px] border-[#fdb4cd]">
+    <div className="sticky top-0 w-full bg-white z-30 shadow-sm mb-8 ">
+      <div className="py-4 border-b-[1px] border-[#fdb4cd] ">
         <Container>
           <div className="flex items-center justify-between">
             <Link
@@ -30,9 +32,7 @@ export default function NavBar() {
               E-Shop
             </Link>
 
-            <Input />
-
-            <div className="hidden md:flex gap-5 font-medium">
+            <div className="hidden md:flex gap-10 font-medium">
               <Link href="/contact" className="hover-pink">
                 Contact
               </Link>
@@ -46,7 +46,11 @@ export default function NavBar() {
 
             <div className="flex items-center gap-4">
               <div className="hidden md:flex gap-4 items-center">
-                <FaRegHeart size={24} />
+                <Input
+                  placeholder="What are you looking for?"
+                  icon={<FiSearch />}
+                />
+
                 <CartCount />
                 <FiUser size={24} />
               </div>
