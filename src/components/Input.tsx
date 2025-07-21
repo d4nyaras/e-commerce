@@ -5,12 +5,16 @@ interface InputProps {
   placeholder?: string;
   className?: string;
   icon?: React.ReactNode;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export default function Input({
   placeholder = "",
   className = "",
   icon,
+  value,
+  onChange,
 }: InputProps) {
   return (
     <div className="relative flex items-center w-full max-w-xs">
@@ -22,6 +26,8 @@ export default function Input({
 
       <input
         placeholder={placeholder}
+        value={value}
+        onChange={onChange}
         className={`
           outline-none
           border

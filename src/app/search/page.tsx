@@ -2,26 +2,30 @@ import API from "@/services/api";
 import { notFound } from "next/navigation";
 import ProductCard from "@/components/ProductCard";
 
-export default async function CategoryPage({
-  params,
+export default async function SearchPage({
+  searchParams,
 }: {
-  params: { categoryId: string };
+  searchParams: { q?: string };
 }) {
-  const category = params.categoryId;
+  const query = searchParams.q;
+
+  if (!query) return notFound();
 
   let data;
   try {
-    const res = await API.get(`/products/category/${category}`);
+    const res = await API.get(
+      `/products/search?q=${encodeURIComponent(query)}`
+    );
     data = res.data;
-  } catch (err) {
-    console.error("Error fetching category:", err);
-    return notFound();
+  } catch (error) {
+    console.error("Search failed:", error);
+    return <div className="p-8">Error fetching products.</div>;
   }
 
   return (
     <div className="p-8">
       <h1 className="text-2xl font-semibold mb-4">
-        Results for: <span className="text-pink-600">{category}</span>
+        Results for: <span className="text-pink-600">{query}</span>
       </h1>
 
       {data.products?.length > 0 ? (

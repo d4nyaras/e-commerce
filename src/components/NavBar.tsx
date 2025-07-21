@@ -7,6 +7,7 @@ import { FiUser, FiMenu, FiX } from "react-icons/fi";
 import { FaRegHeart } from "react-icons/fa";
 import { useAuth } from "@/context/AuthContext";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 import { FiSearch } from "react-icons/fi";
 
@@ -19,6 +20,15 @@ export default function NavBar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+
+  const [query, setQuery] = useState("");
+  const router = useRouter();
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!query.trim()) return;
+    router.push(`/search?q=${encodeURIComponent(query)}`);
+  };
 
   return (
     <div className="sticky top-0 w-full bg-white z-30 shadow-sm mb-8 ">
@@ -46,10 +56,14 @@ export default function NavBar() {
 
             <div className="flex items-center gap-4">
               <div className="hidden md:flex gap-4 items-center">
-                <Input
-                  placeholder="What are you looking for?"
-                  icon={<FiSearch />}
-                />
+                <form onSubmit={handleSearch}>
+                  <Input
+                    placeholder="What are you looking for?"
+                    icon={<FiSearch />}
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                  />
+                </form>
 
                 <CartCount />
                 <FiUser size={24} />
