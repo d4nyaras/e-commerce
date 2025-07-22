@@ -42,19 +42,19 @@ export default function NavBar() {
               E-Shop
             </Link>
 
-            <div className="hidden md:flex gap-10 font-medium">
+            <div className="hidden md:flex gap-10 font-medium ml-20">
               <Link href="/contact" className="hover-pink">
                 Contact
               </Link>
               <Link href="/about-us" className="hover-pink">
                 About
               </Link>
-              <Link href="/sign-up" className="hover-pink">
+              <Link href="/register" className="hover-pink">
                 Sign Up
               </Link>
             </div>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 ">
               <div className="hidden md:flex gap-4 items-center">
                 <form onSubmit={handleSearch}>
                   <Input

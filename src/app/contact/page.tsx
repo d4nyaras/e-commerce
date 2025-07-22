@@ -2,25 +2,23 @@
 import Image from "next/image";
 import phoneIcon from "../../../public/icons-phone.svg";
 import emailIcon from "../../../public/icons-mail.svg";
-import { TextField, Box, Button } from "@mui/material";
-import React, { useState } from "react";
+import Input from "@/components/Input";
+import Button from "@/components/Button";
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
+  // const [formData, setFormData] = useState({
+  //   name: "",
+  //   email: "",
+  //   phone: "",
+  //   message: "",
+  // });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const { name, value } = e.target;
+  //   setFormData((prev) => ({ ...prev, [name]: value }));
+  // };
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // You can send the data to an API here
   };
   return (
     <div className="flex gap-8 px-[100px]">
@@ -44,62 +42,39 @@ export default function Contact() {
           <p>Emails: support@exclusive.com</p>
         </div>
       </div>
-      <div className="flex-[75%] shadow-md p-4 flex flex-col shadow-md p-8">
-        <Box
-          className="flex flex-col gap-6"
-          component="form"
-          noValidate
-          autoComplete="off"
-          onSubmit={handleSubmit}
-        >
-          <div className="flex justify-between ">
-            <TextField
-              label="Name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              margin="normal"
-              required
-              variant="filled"
-            />
-
-            <TextField
-              label="Email"
-              name="email"
-              type="email"
-              value={formData.email}
-              onChange={handleChange}
-              margin="normal"
-              required
-              variant="filled"
-            />
-            <TextField
-              label="Phone"
-              name="phone"
-              type="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              margin="normal"
-              required
-              variant="filled"
-            />
+      <div className="flex-[75%] shadow-md flex flex-col p-8">
+        <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
+          <div className="flex justify-between gap-4">
+            <Input placeholder="Name" />
+            <Input placeholder="Email" type="email" />
+            <Input placeholder="Phone" />
           </div>
-          <TextField
-            label="Message"
+          <textarea
+            id="message_area"
             name="message"
-            value={formData.message}
-            onChange={handleChange}
-            multiline
-            rows={8}
-            fullWidth
-            variant="filled"
+            rows={15}
+            cols={50}
+            placeholder="Message"
+            className="      
+          outline-none
+          border
+          border-transparent
+          bg-gray-100
+          text-sm
+          text-gray-500
+          focus:border-[#FB2873]
+          focus:ring-0
+          transition
+          duration-300
+          rounded-sm
+          p-2
+          pr-10"
           />
+
           <div className="flex justify-end">
-            <Button variant="contained" className="py-8">
-              Send Message
-            </Button>
+            <Button label="Submit" />
           </div>
-        </Box>
+        </form>
       </div>
     </div>
   );

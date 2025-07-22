@@ -14,7 +14,7 @@ export default function ListRating({ product }: ListRatingProps) {
             return (
               <div
                 key={review.reviewerName}
-                className="mb-8 border-b border-[#FB2873]"
+                className="mb-8 border-b border-[#FB2873] w-[60%]"
               >
                 <div className="flex gap-2 items-center ">
                   <div className="font-semibold">{review?.reviewerName}</div>

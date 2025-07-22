@@ -10,3 +10,7 @@
 .hover-pink:hover {
   color: #ec4899;
 }
+
+textarea {
+  resize: none;
+}
