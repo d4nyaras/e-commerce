@@ -4,7 +4,6 @@ import Container from "./Container";
 import { Redressed } from "next/font/google";
 import CartCount from "./CartCount";
 import { FiUser, FiMenu, FiX } from "react-icons/fi";
-import { FaRegHeart } from "react-icons/fa";
 import { useAuth } from "@/context/AuthContext";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -42,7 +41,7 @@ export default function NavBar() {
               E-Shop
             </Link>
 
-            <div className="hidden md:flex gap-10 font-medium ml-20">
+            <div className="hidden md:flex gap-10 font-medium ">
               <Link href="/contact" className="hover-pink">
                 Contact
               </Link>
@@ -70,7 +69,7 @@ export default function NavBar() {
               </div>
 
               <button
-                className="md:hidden focus:outline-none"
+                className="md:hidden focus:outline-none cursor-pointer "
                 onClick={toggleMobileMenu}
               >
                 {isMobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
@@ -82,20 +81,43 @@ export default function NavBar() {
 
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white border-t border-pink-300 shadow-md">
-          <div className="flex flex-col items-start px-6 py-4 gap-4 text-lg font-medium">
-            <Link href="/contact" onClick={toggleMobileMenu}>
+          <div className="flex flex-col items-start px-6 py-5 gap-5 text-base font-medium">
+            <Link
+              href="/contact"
+              onClick={toggleMobileMenu}
+              className="w-full py-2 hover:text-pink-600 transition-colors"
+            >
               Contact
             </Link>
-            <Link href="/about-us" onClick={toggleMobileMenu}>
+            <Link
+              href="/about-us"
+              onClick={toggleMobileMenu}
+              className="w-full py-2 hover:text-pink-600 transition-colors"
+            >
               About
             </Link>
-            <Link href="/sign-up" onClick={toggleMobileMenu}>
+            <Link
+              href="/sign-up"
+              onClick={toggleMobileMenu}
+              className="w-full py-2 hover:text-pink-600 transition-colors"
+            >
               Sign Up
             </Link>
-            <div className="flex gap-4 pt-2">
-              <FaRegHeart size={24} />
+            <form onSubmit={handleSearch} className="w-full mt-4">
+              <Input
+                placeholder="What are you looking for?"
+                icon={<FiSearch className="text-pink-500" />}
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                className="w-full rounded border border-pink-300 focus:ring-2 focus:ring-pink-500 focus:outline-none"
+              />
+            </form>
+            <div
+              className="flex gap-6 pt-3 justify-start "
+              onClick={toggleMobileMenu}
+            >
               <CartCount />
-              <FiUser size={24} />
+              <FiUser size={22} />
             </div>
           </div>
         </div>

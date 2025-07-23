@@ -12,7 +12,7 @@ export default function Footer() {
       <Container>
         <div className="flex flex-col md:flex-row justify-between p-12">
           <FooterList>
-            <h3 className="text-base font-bold mb-2">Account</h3>
+            <h3 className="text-base font-bold mb-8">Account</h3>
             <Link href="#">My Account</Link>
             <Link href="#">Login / Register</Link>
             <Link href="#">Cart</Link>
@@ -20,14 +20,14 @@ export default function Footer() {
             <Link href="#">Shop</Link>
           </FooterList>
           <FooterList>
-            <h3 className="text-base font-bold mb-2">Quick Link</h3>
+            <h3 className="text-base font-bold mb-8">Quick Link</h3>
             <Link href="#">Privacy Policy</Link>
             <Link href="#">Terms Of Use</Link>
             <Link href="#">FAQ</Link>
             <Link href="#">Contact</Link>
           </FooterList>
           <div className="w-full md:w-1/3 mb-6 md:mb-0 ">
-            <h3 className="text-base font-bold mb-2">About Us</h3>
+            <h3 className="text-base font-bold mb-8">About Us</h3>
             <p className="mb-2">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
               quo alias sunt qui laboriosam dicta similique, sequi dolores nemo

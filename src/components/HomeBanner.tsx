@@ -1,20 +1,21 @@
 import Image from "next/image";
+
 export default function HomeBanner() {
   return (
-    <div className="relative mb-8  ">
-      <div className="  bg-black mx-auto px-5 py-12 flex flex-col gap-2 md:flex-row items-center justify-evenly w-[85%]">
-        <div className="mb-8 md:mb-0 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
+    <div className="relative mb-8">
+      <div className="bg-black mx-auto px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 py-12 flex flex-col md:flex-row items-center justify-between w-full max-w-[1200px] gap-8">
+        <div className="text-center md:text-left flex-1">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
             Summer Sale!
           </h1>
-          <p className="text-lg md:text-xl text-white mb-2">
+          <p className="text-base sm:text-lg md:text-xl text-white mb-2">
             Enjoy discounts on selected items
           </p>
-          <p className="text-2xl md:text-5xl text-yellow-400 font-bold">
+          <p className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl text-yellow-400 font-bold">
             GET 50% OFF
           </p>
         </div>
-        <div className="w-1/3 relative aspect-video">
+        <div className="flex-1 max-w-md w-full relative aspect-video">
           <Image
             height={400}
             width={400}

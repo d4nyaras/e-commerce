@@ -51,7 +51,7 @@ export default function RootLayout({
               <div className="flex flex-col min-h-screen">
                 <AnnouncementBar message="Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!" />
                 <NavBar />
-                <main className="flex-grow px-[100px]">{children}</main>
+                <main className=" overflow-x-hidden">{children}</main>
                 <Footer />
               </div>
             </AppRouterCacheProvider>

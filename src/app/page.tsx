@@ -121,23 +121,24 @@ export default function Home() {
             <SectionHeading title="Featured" header="New Arrival" />
             <SecondHomeBanner />
           </div>
-          <div className="flex justify-between px-32 py-8">
-            {businessData.map((business) => {
-              return (
-                <div
-                  className="flex flex-col items-center justify-center gap-2"
-                  key={business.title}
-                >
-                  <Image
-                    src={business.icon}
-                    alt={business.title}
-                    className="w-16  h-16"
-                  />
-                  <h1 className="font-bold text-lg">{business.title}</h1>
-                  <span>{business.context}</span>
-                </div>
-              );
-            })}
+
+          <div className="grid items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+            {businessData.map((business) => (
+              <div
+                key={business.title}
+                className="flex flex-col items-center text-center gap-2 p-4"
+              >
+                <Image
+                  src={business.icon}
+                  alt={business.title}
+                  className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain"
+                />
+                <h1 className="font-bold text-base sm:text-lg">
+                  {business.title}
+                </h1>
+                <span className="text-sm sm:text-base">{business.context}</span>
+              </div>
+            ))}
           </div>
         </div>
       </Container>

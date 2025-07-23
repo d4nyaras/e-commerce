@@ -8,7 +8,7 @@ export default function AuthFormWrap({
 }) {
   return (
     <div className=" flex flex-col md:flex-row">
-      <div className="w-full md:w-1/2 flex items-center justify-center ">
+      <div className="hidden lg:flex md:w-1/2  items-center justify-center ">
         <Image
           src={authImage}
           alt="Shopping Illustration"

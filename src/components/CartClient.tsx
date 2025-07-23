@@ -45,29 +45,29 @@ export default function CartClient() {
           })}
       </div>
 
-      <div className="flex justify-between mt-8">
-        <div className="flex gap-4 items-start ">
-          <Input placeholder="Coupon Code" className="py-4" />
+      <div className="flex flex-col md:flex-row justify-between mt-8 gap-6">
+        <div className="flex flex-col sm:flex-row gap-4 items-start flex-1">
+          <Input placeholder="Coupon Code" className="py-4 flex-grow" />
           <Button label="Apply Coupon" />
         </div>
-        <div className="w-[40%] border-2 font-medium text-base   rounded-md border-gray-800 p-8  ">
+
+        <div className="w-full md:w-[40%] border-2 font-medium text-base rounded-md border-gray-800 p-8">
           <h1 className="font-semibold text-lg">Cart Total</h1>
           <div className="flex justify-between py-4">
             <span>Subtotal:</span>
             <span>${totalPrice}</span>
           </div>
-          <hr className="w-[100%]  text-slate-400  " />
+          <hr className="w-full text-slate-400" />
           <div className="flex justify-between py-4">
-            <span>TotalProducts:</span>
+            <span>Total Products:</span>
             <span>{totalProducts}</span>
           </div>
-          <hr className="w-[100%]  text-slate-400  " />
-
+          <hr className="w-full text-slate-400" />
           <div className="flex justify-between py-4">
             <span>Total:</span>
             <span>${totalPrice}</span>
           </div>
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center mt-4">
             <Button label="Process to checkout" />
           </div>
         </div>
