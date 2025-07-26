@@ -8,7 +8,10 @@ import FooterList from "./FooterList";
 import Link from "next/link";
 export default function Footer() {
   return (
-    <footer className="bg-[#FB2873] text-slate-200 text-sm mt-16  ">
+    <footer
+      className="bg-[#FB2873] text-slate-200 text-sm mt-1  "
+      style={{ border: "3px solid red" }}
+    >
       <Container>
         <div className="flex flex-col md:flex-row justify-between p-12">
           <FooterList>

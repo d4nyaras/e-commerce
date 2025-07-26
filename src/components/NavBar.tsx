@@ -63,9 +63,10 @@ export default function NavBar() {
                     onChange={(e) => setQuery(e.target.value)}
                   />
                 </form>
-
                 <CartCount />
-                <FiUser size={24} />
+                <Link href="/profile">
+                  <FiUser size={24} />
+                </Link>{" "}
               </div>
 
               <button
@@ -117,7 +118,9 @@ export default function NavBar() {
               onClick={toggleMobileMenu}
             >
               <CartCount />
-              <FiUser size={22} />
+              <Link href="/profile">
+                <FiUser size={22} />
+              </Link>
             </div>
           </div>
         </div>
