@@ -31,7 +31,6 @@ export default function Input({
 
   return (
     <div className="relative w-full max-w-xs">
-      {/* Floating Label */}
       {variant === "minimal" && (
         <label
           className={`absolute left-0 text-sm text-gray-400 transition-all duration-200 pointer-events-none ${

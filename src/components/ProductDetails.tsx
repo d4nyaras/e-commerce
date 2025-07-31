@@ -5,16 +5,24 @@ import SetQuality from "./SetQuantity";
 import Button from "@/components/Button";
 
 import Image from "next/image";
+import { ProductInterface, ReviewInterface } from "@/types/product";
 
-export default function ProductDetails({ product }: any) {
+export default function ProductDetails({
+  product,
+}: {
+  product: ProductInterface;
+}) {
   const productRating =
-    product.reviews.reduce((acc: number, item: any) => item.rating + acc, 0) /
-    product.reviews.length;
+    product.reviews.reduce(
+      (acc: number, item: ReviewInterface) => item.rating + acc,
+      0
+    ) / product.reviews.length;
 
   const [selectedImage, setSelectedImage] = useState(product.images[0]);
 
   return (
     <div className="flex flex-col md:flex-row gap-8">
+      <h1>{JSON.stringify(product)}</h1>
       <div
         className="
     flex
@@ -52,7 +60,7 @@ export default function ProductDetails({ product }: any) {
       <div className="md:w-[50%] w-full relative bg-[#FFF4F8] rounded-lg overflow-hidden h-[400px] md:h-[500px]">
         <Image
           src={selectedImage}
-          alt={product.id}
+          alt={product.title}
           fill
           className="object-contain"
           priority

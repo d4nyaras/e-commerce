@@ -4,15 +4,15 @@ import formatPrice from "@/utils/formatPrice";
 import Image from "next/image";
 import { Rating } from "@mui/material";
 import { useRouter } from "next/navigation";
-interface ProductCardProps {
-  data: any;
-}
+import { ProductInterface, ReviewInterface } from "@/types/product";
 
-export default function ProductCard({ data }: ProductCardProps) {
+export default function ProductCard({ data }: { data: ProductInterface }) {
   const router = useRouter();
   const productRating =
-    data.reviews.reduce((acc: number, item: any) => item.rating + acc, 0) /
-    data.reviews.length;
+    data.reviews.reduce(
+      (acc: number, item: ReviewInterface) => item.rating + acc,
+      0
+    ) / data.reviews.length;
   return (
     <div
       onClick={() => router.push(`/product/${data.id}`)}

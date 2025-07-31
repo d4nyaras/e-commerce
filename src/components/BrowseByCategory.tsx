@@ -5,7 +5,7 @@ import { categoryIcons } from "@/utils/categoryIcons";
 import API from "@/services/api";
 
 export default function BrowseByCategory() {
-  const [category, setCategory] = useState([]);
+  const [category, setCategory] = useState<string[]>([]);
 
   useEffect(() => {
     API.get("/products/category-list")

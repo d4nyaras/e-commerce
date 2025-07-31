@@ -45,6 +45,7 @@ export default function RegisterForm() {
 
   return (
     <div className="flex flex-col gap-6 w-full">
+      {isLoading && <div>is loading...</div>}
       <div>
         <Heading title="Create an account" />
         <span>Enter your details below</span>

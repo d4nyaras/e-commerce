@@ -2,18 +2,16 @@
 import { useCart } from "@/context/CartContext";
 import Link from "next/link";
 import ItemContent from "./ItemContent";
-import formatPrice from "@/utils/formatPrice";
 import Input from "@/components/Input";
 import Button from "@/components/Button";
+import { ProductInCart } from "@/types/cart";
 export default function CartClient() {
   const { cart } = useCart();
 
-  const allProducts = cart.carts?.flatMap(
-    (item: { products: any[] }) => item.products
-  );
+  const allProducts = cart?.carts.flatMap((item) => item.products);
 
-  const totalPrice = cart.carts?.reduce((sum, item) => sum + item.total, 0);
-  const totalProducts = cart.carts?.reduce(
+  const totalPrice = cart?.carts.reduce((sum, item) => sum + item.total, 0);
+  const totalProducts = cart?.carts.reduce(
     (sum, item) => sum + item.totalProducts,
     0
   );
@@ -40,7 +38,7 @@ export default function CartClient() {
       </div>
       <div className="flex flex-col gap-8">
         {allProducts &&
-          allProducts.map((item) => {
+          allProducts.map((item: ProductInCart) => {
             return <ItemContent key={item.id} item={item} />;
           })}
       </div>

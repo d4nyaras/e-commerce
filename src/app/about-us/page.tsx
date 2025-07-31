@@ -28,6 +28,12 @@ const businessData = [
   },
 ];
 
+export const metadata = {
+  title: "About Us | Exclusive",
+  description:
+    "Learn about Exclusive – South Asia’s premier online shopping marketplace with 10,500 sellers and 3 million customers.",
+};
+
 export default function AboutUs() {
   return (
     <div className="flex flex-col gap-12 md:gap-16 px-4 sm:px-6 md:px-12 lg:px-24">
@@ -60,7 +66,7 @@ export default function AboutUs() {
       </div>
 
       {/* Business Stats */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-12">
         {businessData.map((business, index) => (
           <div
             key={index}

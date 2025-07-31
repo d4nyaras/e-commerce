@@ -13,10 +13,11 @@ import servicesFirst from "../../public/ServicesFirst.svg";
 import servicesSecond from "../../public/ServicesSecond.svg";
 import servicesThird from "../../public/ServicesThird.svg";
 import SecondHomeBanner from "@/components/SecondHomeBanner";
+import { ProductInterface } from "@/types/product";
 
 export default function Home() {
-  const [products, setProducts] = useState([]);
-  const [category, setCategory] = useState([]);
+  const [products, setProducts] = useState<ProductInterface[]>([]);
+  const [category, setCategory] = useState<string[]>([]);
 
   useEffect(() => {
     API.get("/products/category-list")

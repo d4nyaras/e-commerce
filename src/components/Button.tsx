@@ -1,6 +1,6 @@
 "use client";
 
-interface ButtonProps {
+interface ButtonInterface {
   label: string;
   disable?: boolean;
   custom?: string;
@@ -11,11 +11,10 @@ interface ButtonProps {
 export default function Button({
   label,
   disable,
-
   custom,
   onClick,
   inPink,
-}: ButtonProps) {
+}: ButtonInterface) {
   return (
     <button
       onClick={onClick}

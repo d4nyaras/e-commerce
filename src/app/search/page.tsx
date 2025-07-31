@@ -1,13 +1,15 @@
 import API from "@/services/api";
 import { notFound } from "next/navigation";
 import ProductCard from "@/components/ProductCard";
+import { ProductInterface } from "@/types/product";
 
-export default async function SearchPage({
-  searchParams,
-}: {
-  searchParams: { q?: string };
-}) {
-  const query = searchParams.q;
+type SearchPageProps = {
+  searchParams: Record<string, string | string[] | undefined>;
+};
+
+export default async function SearchPage(props: SearchPageProps) {
+  const query =
+    typeof props.searchParams.q === "string" ? props.searchParams.q : undefined;
 
   if (!query) return notFound();
 
@@ -30,7 +32,7 @@ export default async function SearchPage({
 
       {data.products?.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {data.products.map((product: any) => (
+          {data.products.map((product: ProductInterface) => (
             <div key={product.id} className="flex justify-center items-center">
               <ProductCard data={product} />
             </div>

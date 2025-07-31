@@ -1,11 +1,11 @@
 "use client";
-import SetQuality from "@/components/SetQuantity";
 import formatPrice from "@/utils/formatPrice";
 import truncateText from "@/utils/truncateText";
 import Image from "next/image";
 import Link from "next/link";
+import { ProductInCart } from "@/types/cart";
 
-export default function ItemContent({ item }: any) {
+export default function ItemContent({ item }: { item: ProductInCart }) {
   return (
     <div className="grid grid-cols-5 text-xs md:text-sm gap-4 p-6  shadow-sm items-center  ">
       <div className="col-span-2 justify-self-start flex gap-2 md:gap-4">

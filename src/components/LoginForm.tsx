@@ -42,8 +42,20 @@ export default function LoginForm() {
 
       login(response.data);
       router.push("/");
-    } catch (error: any) {
-      console.log(error.response?.data?.message);
+    } catch (error: unknown) {
+      if (
+        error &&
+        typeof error === "object" &&
+        "response" in error &&
+        (error as { response?: { data?: { message?: string } } }).response
+      ) {
+        console.log(
+          (error as { response?: { data?: { message?: string } } }).response
+            ?.data?.message
+        );
+      } else {
+        console.log(error);
+      }
     } finally {
       setIsLoading(false);
     }
@@ -51,6 +63,7 @@ export default function LoginForm() {
 
   return (
     <div className="flex flex-col gap-6">
+      {isLoading && <div>is Loading...</div>}
       <div>
         <Heading title="Log in" />
         <span>Enter your details below</span>

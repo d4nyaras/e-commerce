@@ -4,7 +4,6 @@ import Container from "./Container";
 import { Redressed } from "next/font/google";
 import CartCount from "./CartCount";
 import { FiUser, FiMenu, FiX } from "react-icons/fi";
-import { useAuth } from "@/context/AuthContext";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -15,7 +14,6 @@ import Input from "./Input";
 const redressed = Redressed({ subsets: ["latin"], weight: ["400"] });
 
 export default function NavBar() {
-  const { isLoggedIn } = useAuth();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);

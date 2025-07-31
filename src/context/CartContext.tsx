@@ -2,34 +2,28 @@
 
 import { createContext, useContext, useEffect, useState } from "react";
 import { useAuth } from "./AuthContext";
-import API from "@/services/api"; // Assuming you use axios or fetch wrapper
+import API from "@/services/api";
+import { CartInterface } from "@/types/cart";
 
-// type CartItem = {
-//   id: number;
-//   productId: number;
-//   quantity: number;
-//   // add more as needed
-// };
+interface CartContextType {
+  cart: CartInterface | null;
+  isLoading: boolean;
+  // addToCart: (productId: number) => Promise<void>;
+  // removeFromCart: (productId: number) => Promise<void>;
+  // isInCart: (productId: number) => boolean;
+}
 
-// type CartContextType = {
-//   cart: CartItem[];
-//   isLoading: boolean;
-//   addToCart: (productId: number) => void;
-//   removeFromCart: (productId: number) => void;
-//   isInCart: (productId: number) => boolean;
-// };
-
-const CartContext = createContext<any | undefined>(undefined);
+const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
-  const [cart, setCart] = useState<any[]>([]);
+  const [cart, setCart] = useState<CartInterface | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const { user } = useAuth();
 
   useEffect(() => {
     const fetchCart = async () => {
       if (!user) {
-        setCart([]);
+        setCart(null);
         return;
       }
       setIsLoading(true);
@@ -46,38 +40,36 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     fetchCart();
   }, [user]);
 
-  const addToCart = async (productId: number) => {
-    try {
-      const res = await API.post("/carts/add", {
-        userId: user?.id,
-        products: [{ id: productId, quantity: 1 }],
-      });
+  // const addToCart = async (productId: number) => {
+  //   try {
+  //     const res = await API.post("/carts/add", {
+  //       userId: user?.id,
+  //       products: [{ id: productId, quantity: 1 }],
+  //     });
 
-      // Assume new cart is returned
-      setCart(res.data);
-    } catch (err) {
-      console.error("Error adding to cart", err);
-    }
-  };
+  //     // Assume new cart is returned
+  //     setCart(res.data);
+  //   } catch (err) {
+  //     console.error("Error adding to cart", err);
+  //   }
+  // };
 
-  const removeFromCart = async (productId: number) => {
-    try {
-      const updatedCart = cart.filter((item) => item.productId !== productId);
-      // Optional: make DELETE request to backend
-      setCart(updatedCart);
-    } catch (err) {
-      console.error("Error removing from cart", err);
-    }
-  };
+  // const removeFromCart = async (productId: number) => {
+  //   try {
+  //     const updatedCart = cart.filter((item) => item.id !== productId);
+  //     // Optional: make DELETE request to backend
+  //     setCart(updatedCart);
+  //   } catch (err) {
+  //     console.error("Error removing from cart", err);
+  //   }
+  // };
 
-  const isInCart = (productId: number) => {
-    return cart.some((item) => item.productId === productId);
-  };
+  // const isInCart = (productId: number) => {
+  //   return cart.some((item) => item.id === productId);
+  // };
 
   return (
-    <CartContext.Provider
-      value={{ cart, isLoading, addToCart, removeFromCart, isInCart }}
-    >
+    <CartContext.Provider value={{ cart, isLoading }}>
       {children}
     </CartContext.Provider>
   );
