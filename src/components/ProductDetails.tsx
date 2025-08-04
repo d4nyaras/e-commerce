@@ -22,7 +22,6 @@ export default function ProductDetails({
 
   return (
     <div className="flex flex-col md:flex-row gap-8">
-      <h1>{JSON.stringify(product)}</h1>
       <div
         className="
     flex
