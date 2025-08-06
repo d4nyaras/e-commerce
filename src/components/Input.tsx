@@ -30,7 +30,7 @@ export default function Input({
     "bg-transparent border-b border-gray-300 text-gray-700 py-2 pr-10 focus:border-pink-500";
 
   return (
-    <div className="relative w-full max-w-xs">
+    <div className="relative w-full  ">
       {variant === "minimal" && (
         <label
           className={`absolute left-0 text-sm text-gray-400 transition-all duration-200 pointer-events-none ${

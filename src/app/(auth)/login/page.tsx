@@ -1,13 +1,12 @@
-import Container from "@/components/Container";
 import AuthFormWrap from "@/components/AuthFormWrap";
 import LoginForm from "@/components/LoginForm";
 
 export default function Login() {
   return (
-    <Container>
+    <div className="h-full flex items-center justify-center">
       <AuthFormWrap>
         <LoginForm />
       </AuthFormWrap>
-    </Container>
+    </div>
   );
 }

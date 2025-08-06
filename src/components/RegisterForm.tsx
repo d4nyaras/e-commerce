@@ -5,9 +5,12 @@ import Heading from "./Heading";
 import Input from "./Input";
 import Button from "./Button";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function RegisterForm() {
   const [isLoading, setIsLoading] = useState(false);
+
+  const router = useRouter();
 
   // Form state
   const [name, setName] = useState("");
@@ -44,7 +47,7 @@ export default function RegisterForm() {
   };
 
   return (
-    <div className="flex flex-col gap-6 w-full">
+    <div className="flex flex-col gap-6  w-[80%] ">
       {isLoading && <div>is loading...</div>}
       <div>
         <Heading title="Create an account" />
@@ -59,6 +62,7 @@ export default function RegisterForm() {
             value={name}
             onChange={(e) => setName(e.target.value)}
             type="text"
+            className="w-full"
           />
           {errors.name && (
             <p className="text-sm text-red-500 mt-1">{errors.name}</p>
@@ -91,7 +95,7 @@ export default function RegisterForm() {
           )}
         </div>
 
-        <Button label="Create Account" />
+        <Button label="Create Account" onClick={() => router.push("/login")} />
       </form>
 
       <div className="flex justify-center">

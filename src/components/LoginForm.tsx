@@ -62,7 +62,7 @@ export default function LoginForm() {
   };
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6  w-[80%] ">
       {isLoading && <div>is Loading...</div>}
       <div>
         <Heading title="Log in" />

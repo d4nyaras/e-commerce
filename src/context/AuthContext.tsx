@@ -13,18 +13,21 @@ type AuthContextType = {
   isLoggedIn: boolean;
   login: (user: User) => void;
   logout: () => void;
+  isHydrated: boolean;
 };
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
+  const [isHydrated, setIsHydrated] = useState(false);
 
   useEffect(() => {
     const storedUser = localStorage.getItem("commerce-user");
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
+    setIsHydrated(true);
   }, []);
 
   const login = (userData: User) => {
@@ -44,6 +47,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         isLoggedIn: !!user,
         login,
         logout,
+        isHydrated,
       }}
     >
       {children}

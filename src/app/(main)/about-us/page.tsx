@@ -1,9 +1,9 @@
 import Image from "next/image";
-import sideImageAboutUs from "../../../public/sideImageAboutUs.png";
-import servicesFirst from "../../../public/ServicesFirst.svg";
-import servicesSecond from "../../../public/ServicesSecond.svg";
-import servicesThird from "../../../public/ServicesThird.svg";
-import servicesFourth from "../../../public/ServicesFourth.svg";
+import sideImageAboutUs from "../../../../public/sideImageAboutUs.png";
+import servicesFirst from "../../../../public/ServicesFirst.svg";
+import servicesSecond from "../../../../public/ServicesSecond.svg";
+import servicesThird from "../../../../public/ServicesThird.svg";
+import servicesFourth from "../../../../public/ServicesFourth.svg";
 
 const businessData = [
   {

@@ -1,5 +1,5 @@
 import Container from "@/components/Container";
-import CartClient from "../../components/CartClient";
+import CartClient from "../../../components/CartClient";
 
 export default function Cart() {
   return (

@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
-import phoneIcon from "../../../public/icons-phone.svg";
-import emailIcon from "../../../public/icons-mail.svg";
+import phoneIcon from "../../../../public/icons-phone.svg";
+import emailIcon from "../../../../public/icons-mail.svg";
 import Input from "@/components/Input";
 import Button from "@/components/Button";
 

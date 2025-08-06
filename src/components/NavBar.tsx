@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import Container from "./Container";
 import { Redressed } from "next/font/google";
@@ -6,20 +7,21 @@ import CartCount from "./CartCount";
 import { FiUser, FiMenu, FiX } from "react-icons/fi";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-
 import { FiSearch } from "react-icons/fi";
-
 import Input from "./Input";
+import { useAuth } from "@/context/AuthContext";
+import Button from "./Button";
 
 const redressed = Redressed({ subsets: ["latin"], weight: ["400"] });
 
 export default function NavBar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   const [query, setQuery] = useState("");
   const router = useRouter();
+
+  const { isLoggedIn, isHydrated } = useAuth();
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -46,9 +48,11 @@ export default function NavBar() {
               <Link href="/about-us" className="hover-pink">
                 About
               </Link>
-              <Link href="/register" className="hover-pink">
-                Sign Up
-              </Link>
+              {isHydrated && !isLoggedIn && (
+                <Link href="/register" className="hover-pink">
+                  Sign Up
+                </Link>
+              )}
             </div>
 
             <div className="flex items-center gap-4 ">
@@ -61,10 +65,24 @@ export default function NavBar() {
                     onChange={(e) => setQuery(e.target.value)}
                   />
                 </form>
-                <CartCount />
-                <Link href="/profile">
-                  <FiUser size={24} />
-                </Link>{" "}
+
+                {isHydrated && isLoggedIn && (
+                  <>
+                    <CartCount />
+                    <Link href="/profile">
+                      <FiUser size={24} />
+                    </Link>
+                  </>
+                )}
+
+                {isHydrated && !isLoggedIn && (
+                  <Button
+                    label="Login"
+                    onClick={() => router.push("/login")}
+                    custom="py-1"
+                    inPink
+                  />
+                )}
               </div>
 
               <button
@@ -95,13 +113,30 @@ export default function NavBar() {
             >
               About
             </Link>
-            <Link
-              href="/sign-up"
-              onClick={toggleMobileMenu}
-              className="w-full py-2 hover:text-pink-600 transition-colors"
-            >
-              Sign Up
-            </Link>
+            {isHydrated && !isLoggedIn && (
+              <Link href="/register" className="hover-pink">
+                Sign Up
+              </Link>
+            )}
+
+            {isHydrated && !isLoggedIn && (
+              <Button label="Login" onClick={() => router.push("/login")} />
+            )}
+
+            {isHydrated && isLoggedIn && (
+              <>
+                <div
+                  className="flex gap-6 pt-3 justify-start"
+                  onClick={toggleMobileMenu}
+                >
+                  <CartCount />
+                  <Link href="/profile">
+                    <FiUser size={22} />
+                  </Link>
+                </div>
+              </>
+            )}
+
             <form onSubmit={handleSearch} className="w-full mt-4">
               <Input
                 placeholder="What are you looking for?"
@@ -111,15 +146,6 @@ export default function NavBar() {
                 className="w-full rounded border border-pink-300 focus:ring-2 focus:ring-pink-500 focus:outline-none"
               />
             </form>
-            <div
-              className="flex gap-6 pt-3 justify-start "
-              onClick={toggleMobileMenu}
-            >
-              <CartCount />
-              <Link href="/profile">
-                <FiUser size={22} />
-              </Link>
-            </div>
           </div>
         </div>
       )}
