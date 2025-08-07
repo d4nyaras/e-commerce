@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import ProductCard from "@/components/ProductCard";
 import { ProductInterface } from "@/types/product";
 import API from "@/services/api";
+import NoResults from "@/components/NoResults";
 
 export default function SearchPageClient() {
   const searchParams = useSearchParams();
@@ -54,7 +55,7 @@ export default function SearchPageClient() {
           ))}
         </div>
       ) : (
-        <p>No products found.</p>
+        <NoResults />
       )}
     </div>
   );

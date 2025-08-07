@@ -4,17 +4,15 @@ import { useState } from "react";
 import Heading from "./Heading";
 import Input from "./Input";
 import Button from "./Button";
-import Link from "next/link";
 import API from "@/services/api";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
+import toast from "react-hot-toast";
 
 export default function LoginForm() {
   const { login } = useAuth();
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState(false);
 
-  // Form state
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState<{
@@ -33,7 +31,6 @@ export default function LoginForm() {
       return;
     }
 
-    setIsLoading(true);
     try {
       const response = await API.post("/auth/login", {
         username,
@@ -41,29 +38,19 @@ export default function LoginForm() {
       });
 
       login(response.data);
+      toast.success("Welcome back!");
       router.push("/");
     } catch (error: unknown) {
-      if (
-        error &&
-        typeof error === "object" &&
-        "response" in error &&
-        (error as { response?: { data?: { message?: string } } }).response
-      ) {
-        console.log(
-          (error as { response?: { data?: { message?: string } } }).response
-            ?.data?.message
-        );
-      } else {
-        console.log(error);
-      }
+      const message =
+        (error as { response?: { data?: { message?: string } } }).response?.data
+          ?.message || "Login failed. Please try again.";
+      toast.error(message);
     } finally {
-      setIsLoading(false);
     }
   };
 
   return (
     <div className="flex flex-col gap-6  w-[80%] ">
-      {isLoading && <div>is Loading...</div>}
       <div>
         <Heading title="Log in" />
         <span>Enter your details below</span>
@@ -95,11 +82,31 @@ export default function LoginForm() {
           )}
         </div>
 
+        <div className=" bg-blue-50 text-blue-800 p-3 rounded text-sm border border-blue-200">
+          <p className="font-medium">Use the demo credentials:</p>
+          <p>
+            <strong>Username:</strong> <code>arianaw</code> <br />
+            <strong>Password:</strong> <code>arianawpass</code>
+          </p>
+        </div>
+
+        <button
+          type="button"
+          className="text-sm text-blue-600 underline"
+          onClick={() => {
+            setUsername("arianaw");
+            setPassword("arianawpass");
+            toast.success("Demo credentials filled in!");
+          }}
+        >
+          Use Demo Account
+        </button>
+
         <div className="flex justify-between items-center mt-2">
           <Button label="Log In" />
-          <Link href="/" className="text-[#FB2873] text-sm">
+          {/* <Link href="/" className="text-[#FB2873] text-sm">
             Forget Password
-          </Link>
+          </Link> */}
         </div>
       </form>
     </div>

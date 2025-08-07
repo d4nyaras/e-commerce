@@ -1,5 +1,6 @@
 "use client";
 import { createContext, useContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 type User = {
   id: number;
@@ -37,6 +38,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   const logout = () => {
     localStorage.removeItem("commerce-user");
+    toast.success("You’ve been logged out.");
     setUser(null);
   };
 

@@ -13,18 +13,17 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between p-12">
           <FooterList>
             <h3 className="text-base font-bold mb-8">Account</h3>
-            <Link href="#">My Account</Link>
-            <Link href="#">Login / Register</Link>
-            <Link href="#">Cart</Link>
-            <Link href="#">Wishlist</Link>
-            <Link href="#">Shop</Link>
+            <Link href="/profile">My Account</Link>
+            <Link href="/login">Login</Link>
+            <Link href="/register">Register</Link>
+            <Link href="/cart">Cart</Link>
           </FooterList>
           <FooterList>
             <h3 className="text-base font-bold mb-8">Quick Link</h3>
+            <Link href="/contact">Contact</Link>
             <Link href="#">Privacy Policy</Link>
-            <Link href="#">Terms Of Use</Link>
+            <Link href="/about-us">About Us</Link>
             <Link href="#">FAQ</Link>
-            <Link href="#">Contact</Link>
           </FooterList>
           <div className="w-full md:w-1/3 mb-6 md:mb-0 ">
             <h3 className="text-base font-bold mb-8">About Us</h3>

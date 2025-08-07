@@ -37,8 +37,7 @@ export default function RegisterForm() {
 
     setIsLoading(true);
     try {
-      // TODO: Replace this with actual API call
-      console.log({ name, email, password });
+      router.push("/login");
     } catch (err) {
       console.log("Register error", err);
     } finally {
@@ -95,7 +94,7 @@ export default function RegisterForm() {
           )}
         </div>
 
-        <Button label="Create Account" onClick={() => router.push("/login")} />
+        <Button label="Create Account" />
       </form>
 
       <div className="flex justify-center">

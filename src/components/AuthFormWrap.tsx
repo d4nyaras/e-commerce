@@ -7,7 +7,7 @@ export default function AuthFormWrap({
   children: React.ReactNode;
 }) {
   return (
-    <div className=" flex flex-col md:flex-row  w-[70%] rounded-2xl shadow-lg bg-white">
+    <div className=" flex flex-col md:flex-row  w-[70%] rounded-2xl shadow-lg bg-white h-[61%]">
       <div className="hidden xl:flex flex-1 rounded-2xl">
         <Image
           src={authImage}

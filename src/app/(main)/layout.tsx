@@ -30,12 +30,13 @@ export default function RootLayout({
         <AuthProvider>
           <CartProvider>
             <Toaster
-              toastOptions={{
-                style: {
-                  background: "rgb(51 65 85)",
-                  color: "#fff",
-                },
-              }}
+              position="top-center"
+              // toastOptions={{
+              //   style: {
+              //     background: "rgb(51 65 85)",
+              //     color: "#fff",
+              //   },
+              // }}
             />
             <AppRouterCacheProvider>
               <div className="flex flex-col min-h-screen">

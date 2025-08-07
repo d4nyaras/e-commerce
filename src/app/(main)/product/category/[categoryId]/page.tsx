@@ -4,6 +4,7 @@ import ProductCard from "@/components/ProductCard";
 import { ProductInterface } from "@/types/product";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import NoResults from "@/components/NoResults";
 
 const CategoryPage = () => {
   const { categoryId } = useParams();
@@ -20,7 +21,7 @@ const CategoryPage = () => {
   }, [categoryId]);
 
   if (!category?.products?.length) {
-    return <p>No products found.</p>;
+    return <NoResults />;
   }
 
   return (
@@ -38,7 +39,7 @@ const CategoryPage = () => {
           ))}
         </div>
       ) : (
-        <p>No products found.</p>
+        <NoResults />
       )}
     </div>
   );

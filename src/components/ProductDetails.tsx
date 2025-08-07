@@ -6,6 +6,7 @@ import Button from "@/components/Button";
 
 import Image from "next/image";
 import { ProductInterface, ReviewInterface } from "@/types/product";
+import toast from "react-hot-toast";
 
 export default function ProductDetails({
   product,
@@ -84,7 +85,10 @@ export default function ProductDetails({
 
         <div className="flex flex-col sm:flex-row gap-4">
           <SetQuality />
-          <Button label="Buy Now" />
+          <Button
+            label="Buy Now"
+            onClick={() => toast.success("Product added to cart!")}
+          />
         </div>
       </div>
     </div>

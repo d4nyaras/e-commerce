@@ -5,6 +5,7 @@ import ItemContent from "./ItemContent";
 import Input from "@/components/Input";
 import Button from "@/components/Button";
 import { ProductInCart } from "@/types/cart";
+import toast from "react-hot-toast";
 export default function CartClient() {
   const { cart } = useCart();
 
@@ -46,7 +47,10 @@ export default function CartClient() {
       <div className="flex flex-col md:flex-row justify-between mt-8 gap-6">
         <div className="flex flex-col sm:flex-row gap-4 items-start flex-1">
           <Input placeholder="Coupon Code" className="py-4 flex-grow" />
-          <Button label="Apply Coupon" />
+          <Button
+            label="Apply Coupon"
+            onClick={() => toast.error("Invalid or expired coupon.")}
+          />
         </div>
 
         <div className="w-full md:w-[40%] border-2 font-medium text-base rounded-md border-gray-800 p-8">
@@ -66,7 +70,10 @@ export default function CartClient() {
             <span>${totalPrice}</span>
           </div>
           <div className="flex items-center justify-center mt-4">
-            <Button label="Process to checkout" />
+            <Button
+              label="Process to checkout"
+              onClick={() => toast.success("Order placed successfully!")}
+            />
           </div>
         </div>
       </div>

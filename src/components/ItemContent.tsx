@@ -4,6 +4,7 @@ import truncateText from "@/utils/truncateText";
 import Image from "next/image";
 import Link from "next/link";
 import { ProductInCart } from "@/types/cart";
+import toast from "react-hot-toast";
 
 export default function ItemContent({ item }: { item: ProductInCart }) {
   return (
@@ -24,9 +25,7 @@ export default function ItemContent({ item }: { item: ProductInCart }) {
           <div className="w-[70px] ">
             <button
               className="text-slate-500 underline"
-              onClick={() => {
-                // handleRemoveProductToCart(item);
-              }}
+              onClick={() => toast.success("Product removed from cart.")}
             >
               Remove
             </button>
