@@ -1,15 +1,15 @@
-"use client";
 import Image from "next/image";
 import phoneIcon from "../../../../public/icons-phone.svg";
 import emailIcon from "../../../../public/icons-mail.svg";
 import Input from "@/components/Input";
 import Button from "@/components/Button";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Contact Us",
+  description: "...",
+};
 export default function Contact() {
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-  };
-
   return (
     <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 px-4 sm:px-8 md:px-16 lg:px-[100px]">
       <div className="w-full lg:w-[25%] flex flex-col items-center justify-center shadow-md p-6 sm:p-8">
@@ -34,7 +34,7 @@ export default function Contact() {
       </div>
 
       <div className="w-full lg:flex-[75%] shadow-md flex flex-col p-6 sm:p-8">
-        <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
+        <form className="flex flex-col gap-6">
           <div className="flex flex-col md:flex-row justify-between gap-4">
             <Input placeholder="Name" />
             <Input placeholder="Email" type="email" />

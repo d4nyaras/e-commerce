@@ -29,9 +29,8 @@ const businessData = [
 ];
 
 export const metadata = {
-  title: "About Us | Exclusive",
-  description:
-    "Learn about Exclusive – South Asia’s premier online shopping marketplace with 10,500 sellers and 3 million customers.",
+  title: "About Us ",
+  description: "...",
 };
 
 export default function AboutUs() {
