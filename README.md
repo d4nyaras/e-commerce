@@ -1,4 +1,4 @@
-![Project Banner](public/banner.png)
+![Project Banner](public/mainBanner.png)
 
 # EShop – E-Commerce Frontend
 
