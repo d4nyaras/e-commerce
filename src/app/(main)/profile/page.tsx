@@ -14,8 +14,6 @@ export default function ProfilePage() {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
-  console.log(user?.id + " fadsklf;masldfkdmaskfdaldkf" + isLoggedIn);
-
   useEffect(() => {
     if (!isHydrated) return;
 

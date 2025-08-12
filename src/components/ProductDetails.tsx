@@ -7,6 +7,7 @@ import Button from "@/components/Button";
 import Image from "next/image";
 import { ProductInterface, ReviewInterface } from "@/types/product";
 import toast from "react-hot-toast";
+import { useAuth } from "@/context/AuthContext";
 
 export default function ProductDetails({
   product,
@@ -20,6 +21,8 @@ export default function ProductDetails({
     ) / product.reviews.length;
 
   const [selectedImage, setSelectedImage] = useState(product.images[0]);
+
+  const { isLoggedIn } = useAuth();
 
   return (
     <div className="flex flex-col md:flex-row gap-8">
@@ -87,7 +90,13 @@ export default function ProductDetails({
           <SetQuality />
           <Button
             label="Buy Now"
-            onClick={() => toast.success("Product added to cart!")}
+            onClick={() => {
+              if (isLoggedIn) {
+                toast.success("Product added to cart!");
+              } else {
+                toast.error("Please log in to add products to your cart.");
+              }
+            }}
           />
         </div>
       </div>
