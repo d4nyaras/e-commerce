@@ -20,3 +20,18 @@ A modern, responsive **e-commerce web application** built with **Next.js** and *
 - **SEO-Friendly** – Server-rendered pages for better search indexing
 
 ---
+
+## 🛠️ Tech Stack
+
+- **Frontend Framework:** [Next.js](https://nextjs.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **State Management:** React Context API
+- **Data Source:** [DummyJSON API](https://dummyjson.com)
+- **Deployment:** [Vercel](https://vercel.com/)
+
+---
+
+## Installation & Setup
+
+1.Clone the repo
+`git clone https://github.com/d4nyaras/e-commerce.git`
