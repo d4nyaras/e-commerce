@@ -33,5 +33,20 @@ A modern, responsive **e-commerce web application** built with **Next.js** and *
 
 ## Installation & Setup
 
-1.Clone the repo
-`git clone https://github.com/d4nyaras/e-commerce.git`
+Follow these steps to set up the project:
+
+1. Clone the repository and navigate into it:  
+   `git clone https://github.com/d4nyaras/e-commerce.git`  
+   `cd e-commerce`
+
+2. Install dependencies by running:  
+   `npm install`
+
+3. To run the project locally, use:  
+   `npm run dev`
+
+4. To build the project for production, run:  
+   `npm run build`
+
+5. Finally, start the production server with:  
+   `npm start`
