@@ -1,5 +1,3 @@
-export default function Test() {
-  const value: unknown = "hello";
+const test = "hello";
 
-  return <div>Test</div>;
-}
+console.log(test);
