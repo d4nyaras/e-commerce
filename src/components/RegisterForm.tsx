@@ -63,9 +63,7 @@ export default function RegisterForm() {
             type="text"
             className="w-full"
           />
-          {errors.name && (
-            <p className="text-sm text-red-500 mt-1">{errors.name}</p>
-          )}
+          {errors.name && <p className="text-sm text-red-500 mt-1">{errors.name}</p>}
         </div>
 
         <div>
@@ -76,9 +74,7 @@ export default function RegisterForm() {
             onChange={(e) => setEmail(e.target.value)}
             type="email"
           />
-          {errors.email && (
-            <p className="text-sm text-red-500 mt-1">{errors.email}</p>
-          )}
+          {errors.email && <p className="text-sm text-red-500 mt-1">{errors.email}</p>}
         </div>
 
         <div>
@@ -89,9 +85,7 @@ export default function RegisterForm() {
             onChange={(e) => setPassword(e.target.value)}
             type="password"
           />
-          {errors.password && (
-            <p className="text-sm text-red-500 mt-1">{errors.password}</p>
-          )}
+          {errors.password && <p className="text-sm text-red-500 mt-1">{errors.password}</p>}
         </div>
 
         <Button label="Create Account" />

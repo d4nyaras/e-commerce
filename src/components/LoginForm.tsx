@@ -42,8 +42,8 @@ export default function LoginForm() {
       router.push("/");
     } catch (error: unknown) {
       const message =
-        (error as { response?: { data?: { message?: string } } }).response?.data
-          ?.message || "Login failed. Please try again.";
+        (error as { response?: { data?: { message?: string } } }).response?.data?.message ||
+        "Login failed. Please try again.";
       toast.error(message);
     } finally {
     }
@@ -64,9 +64,7 @@ export default function LoginForm() {
             onChange={(e) => setUsername(e.target.value)}
             type="text"
           />
-          {errors.username && (
-            <p className="text-sm text-red-500 mt-1">{errors.username}</p>
-          )}
+          {errors.username && <p className="text-sm text-red-500 mt-1">{errors.username}</p>}
         </div>
 
         <div>
@@ -77,9 +75,7 @@ export default function LoginForm() {
             onChange={(e) => setPassword(e.target.value)}
             type="password"
           />
-          {errors.password && (
-            <p className="text-sm text-red-500 mt-1">{errors.password}</p>
-          )}
+          {errors.password && <p className="text-sm text-red-500 mt-1">{errors.password}</p>}
         </div>
 
         <div className=" bg-blue-50 text-blue-800 p-3 rounded text-sm border border-blue-200">

@@ -32,9 +32,7 @@ export default function SecondHomeBanner() {
             className="w-2/3 max-w-[180px] sm:max-w-[220px] lg:max-w-none h-auto object-contain"
           />
           <div className="absolute bottom-4 sm:bottom-6 lg:bottom-8 left-4 sm:left-6 lg:left-8 flex flex-col gap-1 sm:gap-2">
-            <h1 className="font-semibold text-lg sm:text-xl">
-              Women’s Collections
-            </h1>
+            <h1 className="font-semibold text-lg sm:text-xl">Women’s Collections</h1>
             <span className="text-sm sm:text-base">
               Featured woman collections that give you another vibe.
             </span>
@@ -51,9 +49,7 @@ export default function SecondHomeBanner() {
             />
             <div className="absolute bottom-4 sm:bottom-6 lg:bottom-8 left-4 sm:left-6 lg:left-8 flex flex-col gap-1 sm:gap-2">
               <h1 className="font-semibold text-lg sm:text-xl">Speakers</h1>
-              <span className="text-sm sm:text-base">
-                Amazon wireless speakers
-              </span>
+              <span className="text-sm sm:text-base">Amazon wireless speakers</span>
             </div>
           </div>
           <div className="flex-1 bg-[#f84584] relative flex justify-center items-end pt-8 sm:pt-10 lg:pt-12">
@@ -64,9 +60,7 @@ export default function SecondHomeBanner() {
             />
             <div className="absolute bottom-4 sm:bottom-6 lg:bottom-8 left-4 sm:left-6 lg:left-8 flex flex-col gap-1 sm:gap-2">
               <h1 className="font-semibold text-lg sm:text-xl">Perfume</h1>
-              <span className="text-sm sm:text-base">
-                GUCCI INTENSE OUD EDP
-              </span>
+              <span className="text-sm sm:text-base">GUCCI INTENSE OUD EDP</span>
             </div>
           </div>
         </div>

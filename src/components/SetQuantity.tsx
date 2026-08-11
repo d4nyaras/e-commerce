@@ -18,9 +18,7 @@ export default function QuantitySelector() {
         <FaMinus />
       </button>
 
-      <div className="px-6 py-2 text-lg font-semibold text-gray-800 select-none">
-        {quantity}
-      </div>
+      <div className="px-6 py-2 text-lg font-semibold text-gray-800 select-none">{quantity}</div>
 
       <button
         onClick={increase}

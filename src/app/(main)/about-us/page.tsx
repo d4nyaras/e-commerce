@@ -43,24 +43,18 @@ export default function AboutUs() {
             Our Story
           </h1>
           <p className="text-black text-sm sm:text-base">
-            Launced in 2015, Exclusive is South Asia’s premier online shopping
-            makterplace with an active presense in Bangladesh. Supported by wide
-            range of tailored marketing, data and service solutions, Exclusive
-            has 10,500 sallers and 300 brands and serves 3 millioons customers
-            across the region.
+            Launced in 2015, Exclusive is South Asia’s premier online shopping makterplace with an
+            active presense in Bangladesh. Supported by wide range of tailored marketing, data and
+            service solutions, Exclusive has 10,500 sallers and 300 brands and serves 3 millioons
+            customers across the region.
           </p>
           <p className="text-black text-sm sm:text-base">
-            Exclusive has more than 1 Million products to offer, growing at a
-            very fast. Exclusive offers a diverse assotment in categories
-            ranging from consumer.
+            Exclusive has more than 1 Million products to offer, growing at a very fast. Exclusive
+            offers a diverse assotment in categories ranging from consumer.
           </p>
         </div>
         <div className="flex-1">
-          <Image
-            src={sideImageAboutUs}
-            alt="about us"
-            className="w-full h-auto object-contain"
-          />
+          <Image src={sideImageAboutUs} alt="about us" className="w-full h-auto object-contain" />
         </div>
       </div>
 

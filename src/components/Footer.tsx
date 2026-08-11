@@ -28,10 +28,9 @@ export default function Footer() {
           <div className="w-full md:w-1/3 mb-6 md:mb-0 ">
             <h3 className="text-base font-bold mb-8">About Us</h3>
             <p className="mb-2">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
-              quo alias sunt qui laboriosam dicta similique, sequi dolores nemo
-              iure vitae in fugit iusto atque, molestiae blanditiis quaerat ipsa
-              ex.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid quo alias sunt qui
+              laboriosam dicta similique, sequi dolores nemo iure vitae in fugit iusto atque,
+              molestiae blanditiis quaerat ipsa ex.
             </p>
             <p>&copy;{new Date().getFullYear()} E-Shop All right reserved</p>
           </div>

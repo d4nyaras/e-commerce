@@ -22,13 +22,7 @@ export default function BrowseByCategory() {
     <div className="flex flex-wrap gap-4 h-[380px] overflow-y-scroll ">
       {category.map((category) => {
         const IconComponent = categoryIcons[category]!;
-        return (
-          <CategoryContainer
-            key={category}
-            icon={<IconComponent />}
-            label={category}
-          />
-        );
+        return <CategoryContainer key={category} icon={<IconComponent />} label={category} />;
       })}
     </div>
   );

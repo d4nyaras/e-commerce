@@ -23,9 +23,7 @@ export default function SearchPageClient() {
 
     const fetchData = async () => {
       try {
-        const res = await API.get(
-          `/products/search?q=${encodeURIComponent(query)}`
-        );
+        const res = await API.get(`/products/search?q=${encodeURIComponent(query)}`);
         setProducts(res.data.products);
       } catch (err) {
         console.error(err);

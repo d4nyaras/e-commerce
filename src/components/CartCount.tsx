@@ -13,10 +13,7 @@ export default function CartCount() {
     : 0;
 
   return (
-    <div
-      className="relative cursor-pointer"
-      onClick={() => router.push("/cart")}
-    >
+    <div className="relative cursor-pointer" onClick={() => router.push("/cart")}>
       <div className="text-[#FB2873]">
         <PiShoppingCartLight size={28} />
       </div>

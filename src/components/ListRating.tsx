@@ -18,9 +18,7 @@ export default function ListRating({ product }: { product: ProductInterface }) {
               >
                 <div className="flex gap-2 items-center ">
                   <div className="font-semibold">{review?.reviewerName}</div>
-                  <div className="font-light">
-                    {moment(review.date).fromNow()}
-                  </div>
+                  <div className="font-light">{moment(review.date).fromNow()}</div>
                 </div>
                 <div>
                   <Rating value={review.rating} readOnly />

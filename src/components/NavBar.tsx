@@ -34,10 +34,7 @@ export default function NavBar() {
       <div className="py-4 border-b-[1px] border-[#fdb4cd] ">
         <Container>
           <div className="flex items-center justify-between">
-            <Link
-              href="/"
-              className={`${redressed.className} font-bold text-2xl`}
-            >
+            <Link href="/" className={`${redressed.className} font-bold text-2xl`}>
               E-Shop
             </Link>
 
@@ -125,10 +122,7 @@ export default function NavBar() {
 
             {isHydrated && isLoggedIn && (
               <>
-                <div
-                  className="flex gap-6 pt-3 justify-start"
-                  onClick={toggleMobileMenu}
-                >
+                <div className="flex gap-6 pt-3 justify-start" onClick={toggleMobileMenu}>
                   <CartCount />
                   <Link href="/profile">
                     <FiUser size={22} />

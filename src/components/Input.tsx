@@ -42,9 +42,7 @@ export default function Input({
       )}
 
       {icon && (
-        <span className="absolute right-3 top-2.5 text-gray-600 pointer-events-none">
-          {icon}
-        </span>
+        <span className="absolute right-3 top-2.5 text-gray-600 pointer-events-none">{icon}</span>
       )}
 
       <input
@@ -52,9 +50,7 @@ export default function Input({
         onChange={onChange}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
-        className={`${baseInputStyle} ${
-          variant === "default" ? defaultStyle : minimalStyle
-        }`}
+        className={`${baseInputStyle} ${variant === "default" ? defaultStyle : minimalStyle}`}
         type={type}
         placeholder={variant === "default" ? placeholder : ""}
       />

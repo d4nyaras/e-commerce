@@ -69,9 +69,7 @@ export default function ScrollButtons({
         }}
       >
         <div
-          className={`flex gap-x-6 gap-y-6 ${
-            !isFlex && "grid grid-rows-2 auto-cols-max "
-          } `}
+          className={`flex gap-x-6 gap-y-6 ${!isFlex && "grid grid-rows-2 auto-cols-max "} `}
           style={{
             gridAutoFlow: "column",
             display: "grid",

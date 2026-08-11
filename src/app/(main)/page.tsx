@@ -63,13 +63,7 @@ export default async function Home() {
         <ScrollButtons isFlex>
           {categories.map((category) => {
             const IconComponent = categoryIcons[category]!;
-            return (
-              <CategoryContainer
-                key={category}
-                icon={<IconComponent />}
-                label={category}
-              />
-            );
+            return <CategoryContainer key={category} icon={<IconComponent />} label={category} />;
           })}
         </ScrollButtons>
 
@@ -98,18 +92,13 @@ export default async function Home() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 items-center text-center mt-8">
           {businessData.map((business) => (
-            <div
-              key={business.title}
-              className="flex flex-col items-center gap-2 p-4"
-            >
+            <div key={business.title} className="flex flex-col items-center gap-2 p-4">
               <Image
                 src={business.icon}
                 alt={business.title}
                 className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain"
               />
-              <h1 className="font-bold text-base sm:text-lg">
-                {business.title}
-              </h1>
+              <h1 className="font-bold text-base sm:text-lg">{business.title}</h1>
               <span className="text-sm sm:text-base">{business.context}</span>
             </div>
           ))}

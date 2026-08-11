@@ -9,16 +9,10 @@ import { ProductInterface, ReviewInterface } from "@/types/product";
 import toast from "react-hot-toast";
 import { useAuth } from "@/context/AuthContext";
 
-export default function ProductDetails({
-  product,
-}: {
-  product: ProductInterface;
-}) {
+export default function ProductDetails({ product }: { product: ProductInterface }) {
   const productRating =
-    product.reviews.reduce(
-      (acc: number, item: ReviewInterface) => item.rating + acc,
-      0,
-    ) / product.reviews.length;
+    product.reviews.reduce((acc: number, item: ReviewInterface) => item.rating + acc, 0) /
+    product.reviews.length;
 
   const [selectedImage, setSelectedImage] = useState(
     product.images[0] ?? "/public/placeholder.jpeg",
@@ -45,9 +39,7 @@ export default function ProductDetails({
           <div
             key={index}
             className={`bg-[#FFF4F8] cursor-pointer items-center justify-center border-2 ${
-              selectedImage === image
-                ? "border-pink-500 rounded-md"
-                : "border-transparent"
+              selectedImage === image ? "border-pink-500 rounded-md" : "border-transparent"
             }`}
             onClick={() => setSelectedImage(image)}
           >
@@ -63,22 +55,14 @@ export default function ProductDetails({
       </div>
 
       <div className="md:w-[50%] w-full relative bg-[#FFF4F8] rounded-lg overflow-hidden h-[400px] md:h-[500px]">
-        <Image
-          src={selectedImage}
-          alt={product.title}
-          fill
-          className="object-contain"
-          priority
-        />
+        <Image src={selectedImage} alt={product.title} fill className="object-contain" priority />
       </div>
 
       <div className="md:w-[40%] w-full flex flex-col gap-4">
         <h1 className="font-bold text-3xl">{product.title}</h1>
         <div className="flex gap-2 items-center">
           <Rating value={productRating} readOnly />
-          <span className="text-md text-gray-500">
-            ({product.reviews.length} Reviews)
-          </span>
+          <span className="text-md text-gray-500">({product.reviews.length} Reviews)</span>
         </div>
         <span className="font-medium text-3xl">${product.price}</span>
         <span>{product.description}</span>

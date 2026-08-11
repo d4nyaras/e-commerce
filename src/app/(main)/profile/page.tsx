@@ -40,31 +40,20 @@ export default function ProfilePage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
-        <p className="text-gray-600 text-lg animate-pulse">
-          Loading profile...
-        </p>
+        <p className="text-gray-600 text-lg animate-pulse">Loading profile...</p>
       </div>
     );
   }
 
   if (!profile) {
-    return (
-      <div className="text-center py-10 text-red-600">
-        Unable to load your profile.
-      </div>
-    );
+    return <div className="text-center py-10 text-red-600">Unable to load your profile.</div>;
   }
 
   return (
     <Container>
       <div className=" bg-white p-8 rounded-2xl shadow-lg">
         <div className="flex flex-col items-center gap-4">
-          <Image
-            width={100}
-            height={100}
-            src={profile.image}
-            alt={profile.username}
-          />
+          <Image width={100} height={100} src={profile.image} alt={profile.username} />
           <h1 className="text-2xl font-semibold">
             {profile.firstName} {profile.lastName}
           </h1>
@@ -84,8 +73,7 @@ export default function ProfilePage() {
           <div>
             <h2 className="font-semibold mb-1">Address</h2>
             <p>
-              {profile.address.address}, {profile.address.city},{" "}
-              {profile.address.country}
+              {profile.address.address}, {profile.address.city}, {profile.address.country}
             </p>
           </div>
           <div>
@@ -98,8 +86,7 @@ export default function ProfilePage() {
           <div>
             <h2 className="font-semibold mb-1">Bank</h2>
             <p>
-              {profile.bank.cardType} — ****{profile.bank.cardNumber.slice(-4)}{" "}
-              <br />
+              {profile.bank.cardType} — ****{profile.bank.cardNumber.slice(-4)} <br />
               Expires: {profile.bank.cardExpire}
             </p>
           </div>

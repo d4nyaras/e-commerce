@@ -12,10 +12,7 @@ export default function CartClient() {
   const allProducts = cart?.carts.flatMap((item) => item.products);
 
   const totalPrice = cart?.carts.reduce((sum, item) => sum + item.total, 0);
-  const totalProducts = cart?.carts.reduce(
-    (sum, item) => sum + item.totalProducts,
-    0
-  );
+  const totalProducts = cart?.carts.reduce((sum, item) => sum + item.totalProducts, 0);
 
   if (!allProducts || allProducts.length === 0) {
     return (
@@ -47,10 +44,7 @@ export default function CartClient() {
       <div className="flex flex-col md:flex-row justify-between mt-8 gap-6">
         <div className="flex flex-col sm:flex-row gap-4 items-start flex-1">
           <Input placeholder="Coupon Code" className="py-4 flex-grow" />
-          <Button
-            label="Apply Coupon"
-            onClick={() => toast.error("Invalid or expired coupon.")}
-          />
+          <Button label="Apply Coupon" onClick={() => toast.error("Invalid or expired coupon.")} />
         </div>
 
         <div className="w-full md:w-[40%] border-2 font-medium text-base rounded-md border-gray-800 p-8">

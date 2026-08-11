@@ -16,12 +16,7 @@ import {
 } from "react-icons/fa";
 import { MdWatch } from "react-icons/md";
 
-import {
-  GiLipstick,
-  GiPerfumeBottle,
-  GiHighHeel,
-  GiDress,
-} from "react-icons/gi";
+import { GiLipstick, GiPerfumeBottle, GiHighHeel, GiDress } from "react-icons/gi";
 import { IconType } from "react-icons";
 
 export const categoryIcons: Record<string, IconType> = {

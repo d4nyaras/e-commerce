@@ -68,11 +68,7 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   //   return cart.some((item) => item.id === productId);
   // };
 
-  return (
-    <CartContext.Provider value={{ cart, isLoading }}>
-      {children}
-    </CartContext.Provider>
-  );
+  return <CartContext.Provider value={{ cart, isLoading }}>{children}</CartContext.Provider>;
 };
 
 export const useCart = () => {

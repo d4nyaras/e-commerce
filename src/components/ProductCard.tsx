@@ -9,10 +9,8 @@ import { ProductInterface, ReviewInterface } from "@/types/product";
 export default function ProductCard({ data }: { data: ProductInterface }) {
   const router = useRouter();
   const productRating =
-    data.reviews.reduce(
-      (acc: number, item: ReviewInterface) => item.rating + acc,
-      0,
-    ) / data.reviews.length;
+    data.reviews.reduce((acc: number, item: ReviewInterface) => item.rating + acc, 0) /
+    data.reviews.length;
   return (
     <div
       onClick={() => router.push(`/product/${data.id}`)}
@@ -28,14 +26,10 @@ export default function ProductCard({ data }: { data: ProductInterface }) {
           className="bg-[#F5F5F5]"
         />
         <div className="text-bold font-bold">{data.title}</div>
-        <div className="font-semibold text-[#DB4444] ">
-          {formatPrice(data.price)}
-        </div>
+        <div className="font-semibold text-[#DB4444] ">{formatPrice(data.price)}</div>
         <div className="flex gap-2 items-center">
           <Rating value={productRating} readOnly />
-          <span className="font-bold text-gray-500">
-            ({data.reviews.length})
-          </span>
+          <span className="font-bold text-gray-500">({data.reviews.length})</span>
         </div>
       </div>
     </div>

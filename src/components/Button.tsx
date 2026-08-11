@@ -8,13 +8,7 @@ interface ButtonInterface {
   inPink?: boolean;
 }
 
-export default function Button({
-  label,
-  disable,
-  custom,
-  onClick,
-  inPink,
-}: ButtonInterface) {
+export default function Button({ label, disable, custom, onClick, inPink }: ButtonInterface) {
   return (
     <button
       onClick={onClick}
