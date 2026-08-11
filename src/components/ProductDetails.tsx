@@ -17,10 +17,12 @@ export default function ProductDetails({
   const productRating =
     product.reviews.reduce(
       (acc: number, item: ReviewInterface) => item.rating + acc,
-      0
+      0,
     ) / product.reviews.length;
 
-  const [selectedImage, setSelectedImage] = useState(product.images[0]);
+  const [selectedImage, setSelectedImage] = useState(
+    product.images[0] ?? "/public/placeholder.jpeg",
+  );
 
   const { isLoggedIn } = useAuth();
 

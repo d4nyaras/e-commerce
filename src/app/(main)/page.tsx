@@ -62,7 +62,7 @@ export default async function Home() {
         <SectionHeading header="Browse By Category" title="Categories" />
         <ScrollButtons isFlex>
           {categories.map((category) => {
-            const IconComponent = categoryIcons[category];
+            const IconComponent = categoryIcons[category]!;
             return (
               <CategoryContainer
                 key={category}

@@ -11,7 +11,7 @@ export default function ProductCard({ data }: { data: ProductInterface }) {
   const productRating =
     data.reviews.reduce(
       (acc: number, item: ReviewInterface) => item.rating + acc,
-      0
+      0,
     ) / data.reviews.length;
   return (
     <div
@@ -20,7 +20,7 @@ export default function ProductCard({ data }: { data: ProductInterface }) {
     >
       <div className="flex flex-col items-start w-full gap-2 ">
         <Image
-          src={data.images[0]}
+          src={data.images[0] ?? "/public/placeholder.jpeg"}
           alt={data.title}
           width={250}
           height={250}
